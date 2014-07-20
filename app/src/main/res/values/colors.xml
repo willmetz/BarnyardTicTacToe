@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<color name="green">#00FF00</color>
+
+    <!-- Reds -->
+	<color name="red">#FF0000</color>
+	<color name="darkRed">#FF1A19</color>
+
+    <!-- Blues -->
+    <color name="myTeal">#00D3FF</color>
+    <color name="myBlue">#0000FF</color>
+
+    <!-- Whites -->
+    <color name="offWhite">#FDFDFD</color>
+
+    <!-- Grays -->
+    <color name="gray_01">#E7DCDC</color>
+    <color name="gray_02">#E0DCDC</color>
+    <color name="gray_03">#959393</color>
+    <color name="gray_04">#6B655A</color>
+    <color name="gray_05">#313131</color>
+</resources>

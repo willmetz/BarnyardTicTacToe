@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="titleBlockTopMargin">170dp</dimen>
+    <dimen name="titleBarTextSize">60sp</dimen>
+    <dimen name="titlePageButtonTextSize">25sp</dimen>
+    <dimen name="titlePageButtonWidth">180dp</dimen>
+
+
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/barn_pic"
+    >
+
+    <TextView
+        android:id="@+id/myTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/titleBlockPadding"
+        android:paddingRight="@dimen/titleBlockPadding"
+        android:layout_marginTop="@dimen/titleBlockTopMargin"
+        android:layout_alignParentTop="true"
+        android:lineSpacingExtra="30dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/darkRed"
+        android:textSize="@dimen/titleBarTextSize"
+        android:textStyle="bold"
+        android:background="@color/gray_05"
+        android:text="@string/game_title"/>
+
+    
+    <TextView
+		android:id="@+id/VersionInfo"
+    	android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"	
+		android:layout_below="@id/myTitle"
+        android:layout_marginTop="5dp"
+		android:background="@color/red"
+		android:textColor="@android:color/black"
+		android:textSize="15sp"
+		tools:text="Version 1.2"
+    />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/onePlayerButton"
+            style="@style/Game.Button"
+            android:layout_width="@dimen/actionButtonWidth"
+            android:layout_marginBottom="10dp"
+            android:text="@string/single_player_game_button"
+            android:textSize="@dimen/titlePageButtonTextSize" />
+
+        <Button
+            android:id="@+id/twoPlayerButton"
+            style="@style/Game.Button"
+            android:layout_width="@dimen/actionButtonWidth"
+            android:layout_marginBottom="10dp"
+            android:text="@string/two_player_game_button"
+            android:textSize="@dimen/titlePageButtonTextSize" />
+
+        <Button
+            android:id="@+id/bluetoothButton"
+            style="@style/Game.Button"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/bluetooth_game_button"
+            android:textSize="@dimen/titlePageButtonTextSize" />
+     </LinearLayout>
+
+
+
+
+</RelativeLayout>

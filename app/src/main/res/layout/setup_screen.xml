@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="5dp"
+    android:background="@drawable/barn_pic"
+    >
+
+    <LinearLayout
+        android:id="@+id/gameBoardSizeContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/GameModeSpinnerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/darkRed"
+            android:padding="10dp"
+            android:text="@string/game_board_selection_label"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/gameBoardDimensionSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_setup_spinner"
+            />
+
+    </LinearLayout>
+
+	
+	<ImageView
+        android:id="@+id/barn_door"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/gameBoardSizeContainer"
+        android:src="@drawable/barn_door"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/barn_door">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Player One Labels -->
+
+        <LinearLayout
+            android:id="@+id/playerOneNameContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:background="@color/darkRed"
+                android:text="@string/player_1_name_label"/>
+
+            <TextView
+                android:id="@+id/PlayerOneName"
+                style="@style/Game.EditText"
+                tools:text="Player One Name"
+                android:clickable="true"
+                android:textColorHint="@android:color/black"
+                android:hint="@string/setup_game_name_hint"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/playerOneIconContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/PlayerOneIconLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Player 1 Icon"
+                    android:textSize="20sp"
+                    android:background="@color/darkRed"
+                    />
+
+                <Spinner
+                    android:id="@+id/PlayerOneSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawSelectorOnTop="true"
+                    android:prompt="@string/SelectIcon"
+                    android:background="@drawable/selector_setup_spinner"
+                    />
+
+            </LinearLayout>
+
+
+            <!-- Player Two Labels -->
+
+            <LinearLayout
+                android:id="@+id/playerTwoNameContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:background="@color/darkRed"
+                    android:text="@string/player_2_name_label"/>
+
+                <TextView
+                    android:id="@+id/PlayerTwoName"
+                    style="@style/Game.EditText"
+                    tools:text="Player One Name"
+                    android:clickable="true"
+                    android:textColorHint="@android:color/black"
+                    android:hint="@string/setup_game_name_hint"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/PlayerTwoIconContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/PlayerTwoIconLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Player 2 Icon"
+                    android:background="@color/darkRed"
+                    android:textSize="20sp"
+                />
+
+                <Spinner
+                    android:id="@+id/PlayerTwoSpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:prompt="@string/SelectIcon"
+                    android:background="@drawable/selector_setup_spinner"
+                />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/startGameButton"
+                android:layout_width="@dimen/actionButtonWidth"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="14dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="@string/start_game"
+                android:textSize="@dimen/actionButtonTextSize" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

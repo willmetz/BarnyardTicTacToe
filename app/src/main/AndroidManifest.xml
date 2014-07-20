@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="slapshotapp.game.tictactoe"
+      android:versionCode="10"
+      android:versionName="3.0.1">
+      
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    
+    <uses-sdk android:targetSdkVersion="19" android:minSdkVersion="10" />
+    
+    <supports-screens 
+		android:smallScreens="false" 
+		android:normalScreens="true" 
+		android:largeScreens="true" 
+		android:xlargeScreens="true" 
+	/>
+      
+    <application android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        <activity android:name=".StartGame"
+                  android:label="@string/app_name"
+                  android:screenOrientation="portrait">
+		            <intent-filter>
+		                <action android:name="android.intent.action.MAIN" />
+		                <category android:name="android.intent.category.LAUNCHER" />
+		            </intent-filter>
+        </activity>
+        
+        <activity 	android:name=".StartBluetoothGame"
+        			android:label="@string/app_name"
+        			android:screenOrientation="portrait">     
+        </activity>
+        
+        <activity 	android:name=".SetUpGameOnePlayer"
+        			android:label="@string/app_name"
+        			android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 	android:name=".SetUpGameTwoPlayer"
+        			android:label="@string/app_name"
+        			android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 	android:name=".SetUpGameBluetooth"
+        			android:label="@string/app_name"
+        			android:screenOrientation="portrait">
+        </activity>
+        
+        <activity 	android:name=".TwoPlayerGame"
+        			android:label="@string/app_name"
+        			android:screenOrientation="portrait">        
+        </activity>
+        
+        <activity 	android:name=".OnePlayerGame"
+        			android:label="@string/app_name"
+        			android:screenOrientation="portrait">        
+        </activity>
+        
+        <activity 	android:name=".BluetoothGame"
+        			android:label="@string/app_name"
+        			android:screenOrientation="portrait">        
+        </activity>
+        
+        <service android:name=".BluetoothService">
+            
+        </service>
+
+    </application>
+        
+    
+
+</manifest> 

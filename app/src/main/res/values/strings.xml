@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="app_name">Barn Yard TicTacToe</string>
+    <string name="game_title_line_1">Barnyard</string>
+    <string name="game_title_line_2">Tic Tac Toe</string>
+    <string name="single_player_game_button">1 PLAYER</string>
+    <string name="two_player_game_button">2 PLAYERS</string>
+    <string name="start_game">Play Game</string>
+    <string name="player_1_name_label">Player 1:</string>
+    <string name="player_2_name_label">Player 2:</string>
+    <string name="game_board_selection_label">Game Board Size</string>
+    <string name="bluetooth_game_button">PLAY OVER BLUETOOTH</string>
+    <string name="bluetooth_select_title">Previously Paired Devices</string>
+    <string name="find_more_bluetooth">Search for more devices</string>
+    <string name="new_device_list_title">New Devices To Play Against</string>
+    <string name="old_device_list_title">Devices already played against</string>
+    <string name="no_device_toast_message">No New Devices Found</string>
+    <string name="discovery_not_enabled_toast_msg">Discovery not enabled, no devices can discover you</string>
+    <string name="discovery_enable_toast_msg">Device is now discoverable</string>
+    <string name="game_over_alert_dialog_title">Game Over</string>
+    <string name="game_over_button_one_title">Play Again</string>
+    <string name="game_over_button_two_title">Quit</string>
+    <string name="game_over_dialog_msg">Someone Wins</string>
+    <string name="tie_game_dialog_message">This game is a draw!!</string>
+    <string name="OnePlayerNameLabel">Name</string>
+    <string name="OnePlayerIconLabel">Icon</string>
+    <string name="connection_lost_alert_dialog_title">Connection Lost</string>
+    <string name="connection_lost_alert_dialog_button">Quit</string>
+    <string name="discovery_complete_toast">Discovery completed</string>
+    <string name="incompatible_versions_msg">The device attempting to connect to has an incompatible version of the game, please update both devices.</string>
+    <string name="new_game_request_title">New Game Requested</string>
+    <string name="new_game_agree_dialog_button_title">New Game</string>
+    <string name="new_game_deny_dialog_button_title">Deny</string>
+    <string name="cancel_connection_toast">Connection attempt has been canceled</string>
+    <string name="communication_issue_restart_toast">Communication issues forced game restart</string>
+    <string name="restart_game_end_game_toast">Due to connection loss game has ended</string>
+    <string name="game_title">Barnyard\nTic Tac Toe</string>
+    <string name="done_text">Done</string>
+    <string name="setup_game_name_hint">Touch to enter name</string>
+
+</resources>
