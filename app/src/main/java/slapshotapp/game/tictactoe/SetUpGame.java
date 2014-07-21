@@ -407,13 +407,11 @@ public class SetUpGame  extends ActionBarActivity implements OnItemSelectedListe
     {
         if( _PlayerOne.GetPlayerID() == playerNumber )
         {
-            Log.d("Tag", "Setting Player one name to " + name );
             _PlayerOne.SetName( name );
             _PlayerOneName.setText( name );
         }
         else
         {
-            Log.d("Tag", "Setting Player two name to " + name );
             _PlayerTwo.SetName( name );
             _PlayerTwoName.setText( name );
         }

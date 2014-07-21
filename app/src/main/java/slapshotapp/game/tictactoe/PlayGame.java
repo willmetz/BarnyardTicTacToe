@@ -591,6 +591,7 @@ public abstract class PlayGame extends ActionBarActivity implements FragmentAler
 					R.string.game_over_button_one_title, 
 					R.string.game_over_button_two_title,
 					msg);
+            _gameOverDialog.setCancelable( false );
 			_gameOverDialog.show(getSupportFragmentManager(), "GameOverDialog");
 			
 			gameOver = true;

@@ -125,10 +125,14 @@ public class MyAlertDialogFragment extends DialogFragment
 				}
 			});
 		}
+
+        alertDialogBuilder.setCancelable( false );
 		
 		return alertDialogBuilder.create();
 		
 	}
+
+
 	
 	
 }

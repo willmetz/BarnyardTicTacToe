@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:inputType="textPersonName"
+        android:imeOptions="actionDone"
         android:hint="Enter Name Here"/>
 
     <LinearLayout

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="@dimen/settingsPageTopMargin"
         android:gravity="center">
 
         <TextView
@@ -24,7 +24,7 @@
             android:background="@color/darkRed"
             android:padding="10dp"
             android:text="@string/game_board_selection_label"
-            android:textSize="20sp" />
+            android:textSize="@dimen/settingsPageTextSize" />
 
         <Spinner
             android:id="@+id/gameBoardDimensionSpinner"
@@ -60,15 +60,16 @@
 
         <LinearLayout
             android:id="@+id/playerOneNameContainer"
-            android:layout_width="match_parent"
+            android:layout_width="@dimen/settingsPageNameWidth"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="@dimen/settingsPageTextSize"
                 android:background="@color/darkRed"
                 android:text="@string/player_1_name_label"/>
 
@@ -97,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="Player 1 Icon"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/settingsPageTextSize"
                     android:background="@color/darkRed"
                     />
 
@@ -117,15 +118,16 @@
 
             <LinearLayout
                 android:id="@+id/playerTwoNameContainer"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/settingsPageNameWidth"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center">>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/settingsPageTextSize"
                     android:background="@color/darkRed"
                     android:text="@string/player_2_name_label"/>
 
@@ -153,7 +155,7 @@
                     android:padding="10dp"
                     android:text="Player 2 Icon"
                     android:background="@color/darkRed"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/settingsPageTextSize"
                 />
 
                 <Spinner
@@ -168,14 +170,15 @@
 
             <Button
                 android:id="@+id/startGameButton"
-                android:layout_width="@dimen/actionButtonWidth"
+                style="@style/Game.Button"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/settingsPagePlayGameTopMargin"
                 android:layout_marginBottom="14dp"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
+                android:padding="@dimen/settingsPageStartGamePadding"
                 android:text="@string/start_game"
-                android:textSize="@dimen/actionButtonTextSize" />
+                android:textSize="@dimen/settingsPageTextSize" />
 
         </LinearLayout>
     </ScrollView>

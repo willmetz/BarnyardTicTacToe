@@ -3,7 +3,11 @@
     <dimen name="titleBlockTopMargin">170dp</dimen>
     <dimen name="titleBarTextSize">60sp</dimen>
     <dimen name="titlePageButtonTextSize">25sp</dimen>
-    <dimen name="titlePageButtonWidth">180dp</dimen>
-
-
+    <dimen name="titlePageButtonWidth">220dp</dimen>
+    <dimen name="settingsPageNameWidth">500dp</dimen>
+    <dimen name="settingsPageTopMargin">120dp</dimen>
+    <dimen name="settingsPagePlayGameTopMargin">50dp</dimen>
+    <dimen name="settingsPageStartGamePadding">10dp</dimen>
+    <dimen name="settingsPageTextSize">30sp</dimen>
+    <dimen name="actionButtonWidth">200dp</dimen>
 </resources>

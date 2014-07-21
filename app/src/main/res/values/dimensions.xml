@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-	<dimen name = "actionButtonWidth">180dp</dimen>
+
 	<dimen name = "actionButtonTextSize">25sp</dimen>
 	<dimen name = "gameCellDimensions">80dp</dimen>
 	<dimen name = "gameCellDimensions_5_5">50dp</dimen>

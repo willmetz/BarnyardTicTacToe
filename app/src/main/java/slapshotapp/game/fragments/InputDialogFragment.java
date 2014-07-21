@@ -1,6 +1,7 @@
 package slapshotapp.game.fragments;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -11,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -67,7 +69,7 @@ public class InputDialogFragment extends DialogFragment
     {
         if( listener != null )
         {
-           final String name =  editText.getText().toString();
+            final String name =  editText.getText().toString();
             listener.onNameEntered( name, playerNumber );
         }
 
@@ -118,6 +120,32 @@ public class InputDialogFragment extends DialogFragment
 
         playerNumber = getArguments().getInt( ARGUMENT_PLAYER_NUMBER );
 
+        //put the edit text in focus and show the keyboard
+        editText.requestFocus();
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+
         return dialogView;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState)
+    {
+        super.onActivityCreated(savedInstanceState);
+
+        editText.setOnEditorActionListener( new TextView.OnEditorActionListener()
+        {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event)
+            {
+                if( actionId == EditorInfo.IME_ACTION_DONE || event.getKeyCode() == KeyEvent.KEYCODE_ENTER )
+                {
+                    doneButtonClicked();
+                    return true;
+                }
+
+                return false;
+            }
+        });
     }
 }
