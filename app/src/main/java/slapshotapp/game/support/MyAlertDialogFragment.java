@@ -126,7 +126,7 @@ public class MyAlertDialogFragment extends DialogFragment
 			});
 		}
 
-        alertDialogBuilder.setCancelable( false );
+        setCancelable( false );
 		
 		return alertDialogBuilder.create();
 		

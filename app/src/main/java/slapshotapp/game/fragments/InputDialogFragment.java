@@ -121,9 +121,8 @@ public class InputDialogFragment extends DialogFragment
         playerNumber = getArguments().getInt( ARGUMENT_PLAYER_NUMBER );
 
         //put the edit text in focus and show the keyboard
-        editText.requestFocus();
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-        imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+        imm.showSoftInput(editText, InputMethodManager.SHOW_FORCED);
 
         return dialogView;
     }
