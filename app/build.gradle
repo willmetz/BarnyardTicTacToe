@@ -18,8 +18,8 @@ android {
         applicationId "slapshotapp.game.tictactoe"
         minSdkVersion 10
         targetSdkVersion 19
-        versionCode 1
-        versionName "1.0"
+        versionCode 10
+        versionName "3.0.1"
     }
     buildTypes {
         release {
