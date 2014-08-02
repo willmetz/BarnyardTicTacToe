@@ -1,6 +1,8 @@
 package slapshotapp.game.tictactoe;
 
 import slapshotapp.game.support.Player;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -38,6 +40,15 @@ public class SetUpGameTwoPlayer extends SetUpGame
 	        _PlayerTwo.SetSymbol(_SymbolNameList[1], _SymbolNameToDrawableHash.get(_SymbolNameList[1]));
 		}
     }
-    
-  
+
+    @Override
+    public void startGame(Bundle bundle)
+    {
+        myIntent = new Intent();
+
+        myIntent.setClassName("slapshotapp.game.tictactoe", "slapshotapp.game.tictactoe.TwoPlayerGame");
+        myIntent.putExtras( bundle );
+        //launch the activity
+        startActivityForResult(myIntent, PLAY_GAME_ID);
+    }
 }

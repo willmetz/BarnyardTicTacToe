@@ -22,7 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class SetUpGame  extends ActionBarActivity implements OnItemSelectedListener, InputDialogFragment.ActionListener
+public abstract class SetUpGame  extends ActionBarActivity implements OnItemSelectedListener, InputDialogFragment.ActionListener
 {	
 	//public members
 	public static final String GAME_BOARD_DIMENSION_KEY = "slapshotapp.game.tictactoe.board_dimensions";
@@ -69,6 +69,8 @@ public class SetUpGame  extends ActionBarActivity implements OnItemSelectedListe
 
     @InjectView( R.id.playerTwoNameContainer )
     LinearLayout playerTwoNameContainer;
+
+    public abstract void startGame( Bundle bundle );
 
 
     @OnClick( { R.id.PlayerOneName, R.id.PlayerTwoName } )
@@ -148,29 +150,17 @@ public class SetUpGame  extends ActionBarActivity implements OnItemSelectedListe
      * Starts the game activity.
      */
     @OnClick( R.id.startGameButton )
-    public void StartGame()
+    public void startGameButtonClicked()
     {
-    	myIntent = new Intent();
-		
+
+
 		//create a bundle for the data to pass the game
-		Bundle b = new Bundle();		
-		
+		Bundle b = new Bundle();
+
 		//tell the game if the computer needs to play or not
 		b.putShort(GAME_BOARD_DIMENSION_KEY, _GameBoardDimensions);
-		
-		if(_GameType == StartGame.ONE_PLAYER_GAME){
-			myIntent.setClassName("slapshotapp.game.tictactoe", "slapshotapp.game.tictactoe.OnePlayerGame");
-		}
-		else if(_GameType == StartGame.TWO_PLAYER_GAME){
-			myIntent.setClassName("slapshotapp.game.tictactoe", "slapshotapp.game.tictactoe.TwoPlayerGame");
-		}
-		else{			
-			myIntent.setClassName("slapshotapp.game.tictactoe", "slapshotapp.game.tictactoe.BluetoothGame");
-		}
-		myIntent.putExtras(b);
-		
-		//launch the activity
-		startActivityForResult(myIntent, PLAY_GAME_ID);
+
+        startGame( b );
     }
     
     //listener for the spinner items

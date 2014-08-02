@@ -47,6 +47,7 @@ public class SetUpGameBluetooth extends SetUpGame implements FragmentAlertDialog
 	private ProgressDialog _OpponentWaitDialog;
 	private boolean _AbortStart;
 	private TicTacToeDBHelper _MyDBHelper;
+    protected Bundle gameBundle;
 	
 	/** Called when the activity is first created. */
     @Override
@@ -172,24 +173,49 @@ public class SetUpGameBluetooth extends SetUpGame implements FragmentAlertDialog
 		switch(target.getId())
 		{
 			case R.id.startGameButton: 
-				sendBluetoothMessage(BluetoothMessages.PLAYER_NAME_MESSAGE_ID);
-				sendBluetoothMessage(BluetoothMessages.PLAYER_IMAGE_MESSAGE_ID);
-				sendBluetoothMessage(BluetoothMessages.START_GAME_MESSAGE_ID);
+
 				
-				if(_receivedOpponentStartMessage){
-	    			//start the game
-	    			StartGame();
-	    		}
-	    		else if(_WaitTask == null){//if not already waiting, wait for opponent info
-	    			
-	    			displayProgressDialog("Waiting for Opponent", "Opponent info required");
-	    			_WaitTask = new WaitForOpponent();
-	    			_WaitForOpponentTimer = new Timer();
-	    			_WaitForOpponentTimer.scheduleAtFixedRate(_WaitTask, 25, 25);
-	    		}
+
 				break;
 		}
 	}
+
+    @Override
+    public void startGame(Bundle bundle)
+    {
+
+        sendBluetoothMessage(BluetoothMessages.PLAYER_NAME_MESSAGE_ID);
+        sendBluetoothMessage(BluetoothMessages.PLAYER_IMAGE_MESSAGE_ID);
+        sendBluetoothMessage(BluetoothMessages.START_GAME_MESSAGE_ID);
+
+        gameBundle = bundle;
+
+        if(_receivedOpponentStartMessage)
+        {
+            //start the game
+            launchGame();
+        }
+        else if(_WaitTask == null)
+        {//if not already waiting, wait for opponent info
+
+            displayProgressDialog("Waiting for Opponent", "Opponent info required");
+            _WaitTask = new WaitForOpponent();
+            _WaitForOpponentTimer = new Timer();
+            _WaitForOpponentTimer.scheduleAtFixedRate(_WaitTask, 25, 25);
+        }
+
+
+    }
+
+    protected void launchGame()
+    {
+        myIntent = new Intent();
+
+        myIntent.setClassName("slapshotapp.game.tictactoe", "slapshotapp.game.tictactoe.BluetoothGame");
+        myIntent.putExtras( gameBundle );
+        //launch the activity
+        startActivityForResult(myIntent, PLAY_GAME_ID);
+    }
     
     public void onItemSelected(AdapterView<?> pAdapterView, View pViewClicked, int pPosition,
 			long pRowId) 
@@ -437,18 +463,20 @@ public class SetUpGameBluetooth extends SetUpGame implements FragmentAlertDialog
 		public void run() 
 		{			
 			//check to see if we have received start message
-			if(_receivedOpponentStartMessage){
+			if(_receivedOpponentStartMessage)
+            {
 				//cancel the timer
 				this.cancel();
 								
 				//dismiss the progress dialog (if it is showing)
-				if(_OpponentWaitDialog != null){
+				if(_OpponentWaitDialog != null)
+                {
 					//dismiss the dialog without calling the cancel callback
 					_OpponentWaitDialog.dismiss();
 				}
 				
 				//start the game
-				StartGame();
+				launchGame();
 			}
 		}
 		

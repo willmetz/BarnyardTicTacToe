@@ -3,6 +3,8 @@ package slapshotapp.game.tictactoe;
 import java.util.Random;
 
 import slapshotapp.game.support.Player;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,8 +13,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class SetUpGameOnePlayer extends SetUpGame
-{	
-	/** Called when the activity is first created. */
+{
+
+
+    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -74,5 +78,16 @@ public class SetUpGameOnePlayer extends SetUpGame
 	
 		//set the sound effect for player 2
 		this.setPlayerSoundEffect(computerPlayerIcon, _PlayerTwo);
+    }
+
+    @Override
+    public void startGame(Bundle bundle)
+    {
+        myIntent = new Intent();
+
+        myIntent.setClassName("slapshotapp.game.tictactoe", "slapshotapp.game.tictactoe.OnePlayerGame");
+        myIntent.putExtras( bundle );
+        //launch the activity
+        startActivityForResult(myIntent, PLAY_GAME_ID);
     }
 }
