@@ -21,7 +21,7 @@ public class StartGame extends ActionBarActivity implements android.content.Dial
 {
 	public static final short ONE_PLAYER_GAME = 1, TWO_PLAYER_GAME = 2, BLUETOOTH_GAME=3; 
 	
-	private final int REQUEST_ENABLE_BT = 123789;
+	private final int REQUEST_ENABLE_BT = 1237;
 
     @InjectView( R.id.VersionInfo )
     TextView versionString;
