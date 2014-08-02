@@ -70,6 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/settingsPageTextSize"
+                android:textStyle="bold"
                 android:background="@color/darkRed"
                 android:text="@string/player_1_name_label"/>
 
@@ -100,6 +101,7 @@
                     android:text="Player 1 Icon"
                     android:textSize="@dimen/settingsPageTextSize"
                     android:background="@color/darkRed"
+                    android:textStyle="bold"
                     />
 
                 <Spinner
@@ -128,6 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/settingsPageTextSize"
+                    android:textStyle="bold"
                     android:background="@color/darkRed"
                     android:text="@string/player_2_name_label"/>
 
@@ -146,6 +149,7 @@
                 android:id="@+id/PlayerTwoIconContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
@@ -156,6 +160,7 @@
                     android:text="Player 2 Icon"
                     android:background="@color/darkRed"
                     android:textSize="@dimen/settingsPageTextSize"
+                    android:textStyle="bold"
                 />
 
                 <Spinner
