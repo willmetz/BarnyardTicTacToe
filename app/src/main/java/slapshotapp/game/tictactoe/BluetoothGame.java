@@ -33,13 +33,7 @@ public class BluetoothGame extends PlayGame implements ServiceConnection
 	{		
 		_msgHandler = new BluetoothMessageHandler(this);
 	}
-	
-	@Override
-	public void StartGame()
-    {
-		_connectionLost = _InvalidMoveReceived = false;
-    }
-	
+
 	@Override
 	public void onRestart()
 	{
@@ -54,22 +48,22 @@ public class BluetoothGame extends PlayGame implements ServiceConnection
 	
 	    
 	@Override
-    public void FocusGained()
-    {    	
+    public void onResume()
+    {
+        super.onResume();
+
     	//bind to the service, clear bound flag
     	_ServiceBound = false;
     	Intent bindIntent = new Intent(this, BluetoothService.class);
     	bindService(bindIntent, this, Context.BIND_AUTO_CREATE);
     }
+
     
 	@Override
-    public void FocusLost()
+    public void onStop()
     {
-    }
-    
-	@Override
-    public void GameNotVisible()
-    {   
+        super.onStop();
+
 		//disconnect from the service
     	if(_ServiceBound){
     		
@@ -77,7 +71,16 @@ public class BluetoothGame extends PlayGame implements ServiceConnection
     		_ServiceBound = false;
     	}	
     }
-    
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+
+        _connectionLost = _InvalidMoveReceived = false;
+    }
+
+    @Override
     public void GameBoardClickListener(View target)
     {
     	//let the base class handle the move
@@ -93,6 +96,7 @@ public class BluetoothGame extends PlayGame implements ServiceConnection
     	}
     }
 
+    @Override
 	public void onServiceConnected(ComponentName name, IBinder service) 
 	{
 		Log.d("BluetoothGame", "Service connected");
@@ -114,6 +118,7 @@ public class BluetoothGame extends PlayGame implements ServiceConnection
 		updateScreenData();
 	}
 
+    @Override
 	public void onServiceDisconnected(ComponentName name) 
 	{
 		_ServiceBound = false;

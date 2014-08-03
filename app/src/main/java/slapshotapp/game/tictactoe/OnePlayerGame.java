@@ -29,34 +29,27 @@ public class OnePlayerGame extends PlayGame implements Runnable
 		_MyHandle = new Handler();	
 	}
 	
-	@Override
-	public void StartGame()
-    {    	
-    	
-    }
-	
     
 	@Override
-	public void FocusLost() 
+	public void onPause()
 	{
+        super.onPause();
+
 		//stop running the computer player on pause
     	_MyHandle.removeCallbacks(this);
 		
 	}
 
 	@Override
-	public void GameNotVisible() 
+	public void onResume()
 	{
-		
-	}
+        super.onResume();
 
-	@Override
-	public void FocusGained() 
-	{
 		//make sure that the computer player is running
     	_MyHandle.postDelayed(this, COMPUTER_DEFAULT_DELAY);
 	}
-	
+
+    @Override
     public void GameBoardClickListener(View target)
     {
     	//Don't allow a move while the computer is going

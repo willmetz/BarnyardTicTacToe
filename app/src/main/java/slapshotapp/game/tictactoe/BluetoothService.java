@@ -313,8 +313,7 @@ public class BluetoothService extends Service
     
     /**
      * Write to the Connection Manager in an unsynchronized manner
-     * @param out The bytes to write
-     * @see ConnectedThread#write(byte[])
+     * @param dataToSend The bytes to write
      */
     public boolean SendPacket(byte[] dataToSend) 
     {

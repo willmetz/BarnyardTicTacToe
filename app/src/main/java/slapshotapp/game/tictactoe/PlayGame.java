@@ -38,29 +38,6 @@ public abstract class PlayGame extends ActionBarActivity implements FragmentAler
 	 */
 	public abstract void InitGame();
 	
-	/*
-	 * Called when the game loses focus but is still visible.
-	 * Also called on startup.
-	 */
-	public abstract void FocusLost();
-	
-	/*
-	 * Called when the game is no longer visible.
-	 */
-	public abstract void GameNotVisible();
-	
-	/*
-	 * Called when the game regains focus after losing it.
-	 * Also called on startup.
-	 */
-	public abstract void FocusGained();
-	
-	/*
-	 * Called when the game is brought back into view after
-	 * being removed from view.
-	 */
-	public abstract void StartGame();
-	
 	public static final int NUMBER_OF_DIAGONALS = 2;
 	public static final int MIN_MOVES_FOR_LOSS = 2;
 	public static final int LEFT_TOP_TO_RIGHT_BOTTOM = 0;
@@ -127,59 +104,7 @@ public abstract class PlayGame extends ActionBarActivity implements FragmentAler
         
         InitGame();
     }
-    
-	/*
-	 * (non-Javadoc)
-	 * @see android.support.v4.app.FragmentActivity#onResume()
-	 */
-    public void onResume()
-    {
-    	super.onResume();
-    	
-    	FocusGained();
-    }
-    
-    /*
-     * (non-Javadoc)
-     * @see android.support.v4.app.FragmentActivity#onStart()
-     */
-    public void onStart()
-    {
-    	super.onStart();
-    	
-    	StartGame();
-    }
-    
-    /*
-     * (non-Javadoc)
-     * @see android.support.v4.app.FragmentActivity#onPause()
-     */
-    public void onPause()
-    {
-    	super.onPause();
-    	
-    	FocusLost();    	
-    }
-    
-    /*
-     * (non-Javadoc)
-     * @see android.support.v4.app.FragmentActivity#onStop()
-     */
-    public void onStop()
-    {
-    	super.onStop();
 
-    	GameNotVisible();
-    }
-    
-    /*
-     * (non-Javadoc)
-     * @see android.support.v4.app.FragmentActivity#onDestroy()
-     */
-    public void onDestroy()
-    {
-    	super.onDestroy();
-    }
     
     @Override
     public void onBackPressed()
@@ -191,6 +116,7 @@ public abstract class PlayGame extends ActionBarActivity implements FragmentAler
     /*
      * This is called by android when the menu key is pressed. 
      */
+    @Override
     public boolean onCreateOptionsMenu(Menu pMenu)
     {
     	//call the parent to attach any system level menus(recommended by android)
@@ -210,6 +136,7 @@ public abstract class PlayGame extends ActionBarActivity implements FragmentAler
 	 * (non-Javadoc)
 	 * @see slapshotapp.game.tictactoe.FragmentAlertDialog#alertDialogButtonClick(int)
 	 */
+    @Override
 	public void alertDialogButtonClick(int buttonNum) 
 	{
 		switch(buttonNum)
@@ -223,8 +150,8 @@ public abstract class PlayGame extends ActionBarActivity implements FragmentAler
 				break;
 		}
 	}
-	
-	//callback for the menu selections
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem pItem)
     {
     	switch(pItem.getItemId())
@@ -246,6 +173,7 @@ public abstract class PlayGame extends ActionBarActivity implements FragmentAler
     }
     
     //this is called by android right before the menu is displayed
+    @Override
     public boolean  onPrepareOptionsMenu(Menu pMenu)
     {
 		MenuItem item;
