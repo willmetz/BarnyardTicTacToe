@@ -4,7 +4,7 @@ import android.app.AlertDialog;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,7 +17,7 @@ import slapshotapp.game.support.MyAlertDialogFragment;
 import slapshotapp.game.support.Player;
 import slapshotapp.game.tictactoe.GameBoard.GameState;
 
-public abstract class PlayGame extends ActionBarActivity implements FragmentAlertDialog {
+public abstract class PlayGame extends AppCompatActivity implements FragmentAlertDialog {
   public static final int EXIT_GAME = 1;
   public static final int BACK_BUTTON = 2;
   protected DialogFragment _gameOverDialog;

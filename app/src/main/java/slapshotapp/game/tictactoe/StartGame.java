@@ -15,8 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class StartGame extends AppCompatActivity
-    implements android.content.DialogInterface.OnClickListener {
+public class StartGame extends AppCompatActivity {
   public static final short ONE_PLAYER_GAME = 1, TWO_PLAYER_GAME = 2, BLUETOOTH_GAME = 3;
 
   private final int REQUEST_ENABLE_BT = 1237;
@@ -67,22 +66,12 @@ public class StartGame extends AppCompatActivity
     }
   }
 
-  public void onClick(DialogInterface dialog, int buttonPressed) {
-    //determine which button was clicked
-    switch (buttonPressed) {
-      case DialogInterface.BUTTON_POSITIVE:
-        //TODO think about disabling the bluetooth option here
-        break;
-    }
-  }
-
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == REQUEST_ENABLE_BT) {
       if (resultCode == RESULT_OK) {
         startActivity(new Intent(this, StartBluetoothGame.class));
       } else {
-        createAlertMsg("Bluetooth needs to be enabled for this game mode", "Bluetooth not enabled",
-            "Select another game mode");
+        showBluetoothDisabledAlert();
       }
     }
   }
@@ -101,18 +90,20 @@ public class StartGame extends AppCompatActivity
     return version;
   }
 
-  private void createAlertMsg(String dialogMsg, String title, String button1) {
+  private void showBluetoothDisabledAlert() {
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    builder.setTitle(title);
+    builder.setTitle("Bluetooth not enabled");
 
     //set this class to be the listener
-    builder.setPositiveButton(button1, this);
-    builder.setMessage(dialogMsg);
+    builder.setPositiveButton("Select another game mode", new DialogInterface.OnClickListener() {
+      @Override public void onClick(DialogInterface dialog, int which) {
+        //TODO think about disabling the bluetooth option here
+      }
+    });
+    builder.setMessage("Bluetooth needs to be enabled for this game mode");
 
     //create the dialog
-    AlertDialog ad = builder.create();
-
-    ad.show();
+    builder.create().show();
   }
 }
 

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,7 +21,7 @@ import java.util.HashMap;
 import slapshotapp.game.fragments.InputDialogFragment;
 import slapshotapp.game.support.Player;
 
-public abstract class SetUpGame extends ActionBarActivity
+public abstract class SetUpGame extends AppCompatActivity
     implements OnItemSelectedListener, InputDialogFragment.ActionListener {
   //public members
   public static final String GAME_BOARD_DIMENSION_KEY =

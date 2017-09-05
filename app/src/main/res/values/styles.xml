@@ -2,12 +2,8 @@
 <resources>
 
     <style name="Game.Button" parent="android:Widget.Button">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:paddingLeft">5dp</item>
-        <item name="android:paddingRight">5dp</item>
-        <item name="android:paddingTop">10dp</item>
-        <item name="android:paddingBottom">10dp</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:padding">8dp</item>
         <item name="android:background">@drawable/button_with_border</item>
     </style>
 
