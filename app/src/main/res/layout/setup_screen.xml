@@ -1,191 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/barn_pic"
+    android:orientation="vertical"
+    android:paddingEnd="16dp"
+    android:paddingStart="16dp"
     >
-
-    <LinearLayout
-        android:id="@+id/gameBoardSizeContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/settingsPageTopMargin"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/GameModeSpinnerLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/darkRed"
-            android:padding="10dp"
-            android:text="@string/game_board_selection_label"
-            android:textSize="@dimen/settingsPageTextSize" />
-
-        <Spinner
-            android:id="@+id/gameBoardDimensionSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/selector_setup_spinner"
-            />
-
-    </LinearLayout>
-
-	
-	<ImageView
-        android:id="@+id/barn_door"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/gameBoardSizeContainer"
-        android:src="@drawable/barn_door"/>
 
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/barn_door">
+        android:layout_marginTop="60dp"
+        android:background="@android:color/transparent"
+        android:paddingBottom="16dp">
 
-
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/GameModeSpinnerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/darkRed"
+                android:padding="10dp"
+                android:text="@string/game_board_selection_label"
+                android:textSize="@dimen/settingsPageTextSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <Spinner
+                android:id="@+id/gameBoardDimensionSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_setup_spinner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/GameModeSpinnerLabel"
+                />
+
+
+            <ImageView
+                android:id="@+id/barn_door"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/open_barn_window"
+                android:src="@drawable/barn_door"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/gameBoardDimensionSpinner"
+                />
 
             <!-- Player One Labels -->
 
-        <LinearLayout
-            android:id="@+id/playerOneNameContainer"
-            android:layout_width="@dimen/settingsPageNameWidth"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp"
-            android:layout_gravity="center">
-
             <TextView
+                android:id="@+id/player_one_name_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@color/darkRed"
+                android:text="@string/player_1_name_label"
                 android:textSize="@dimen/settingsPageTextSize"
                 android:textStyle="bold"
-                android:background="@color/darkRed"
-                android:text="@string/player_1_name_label"/>
+                app:layout_constraintBottom_toBottomOf="@+id/PlayerOneName"
+                app:layout_constraintEnd_toStartOf="@+id/PlayerOneName"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/PlayerOneName"
+                />
+
+            <EditText
+                android:id="@+id/PlayerOneName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:hint="@string/setup_game_name_hint"
+                android:textColorHint="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/player_one_name_label"
+                app:layout_constraintTop_toBottomOf="@id/barn_door"
+                tools:text="Player One Name"
+                style="@style/Game.EditText"
+                />
+
 
             <TextView
-                android:id="@+id/PlayerOneName"
-                style="@style/Game.EditText"
-                tools:text="Player One Name"
-                android:clickable="true"
-                android:textColorHint="@android:color/black"
-                android:hint="@string/setup_game_name_hint"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/playerOneIconContainer"
-                android:layout_width="match_parent"
+                android:id="@+id/PlayerOneIconLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp">
+                android:layout_marginEnd="12dp"
+                android:background="@color/darkRed"
+                android:text="@string/player_1_icon"
+                android:textSize="@dimen/settingsPageTextSize"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/PlayerOneSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/PlayerOneSpinner"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/PlayerOneSpinner"
+                />
 
-                <TextView
-                    android:id="@+id/PlayerOneIconLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Player 1 Icon"
-                    android:textSize="@dimen/settingsPageTextSize"
-                    android:background="@color/darkRed"
-                    android:textStyle="bold"
-                    />
+            <Spinner
+                android:id="@+id/PlayerOneSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/selector_setup_spinner"
+                android:drawSelectorOnTop="true"
+                android:prompt="@string/SelectIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/PlayerOneIconLabel"
+                app:layout_constraintTop_toBottomOf="@id/PlayerOneName"
+                />
 
-                <Spinner
-                    android:id="@+id/PlayerOneSpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawSelectorOnTop="true"
-                    android:prompt="@string/SelectIcon"
-                    android:background="@drawable/selector_setup_spinner"
-                    />
-
-            </LinearLayout>
+            <android.support.constraint.Group
+                android:id="@+id/player_one_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="PlayerOneSpinner,PlayerOneIconLabel,PlayerOneName,player_one_name_label"
+                />
 
 
             <!-- Player Two Labels -->
-
-            <LinearLayout
-                android:id="@+id/playerTwoNameContainer"
-                android:layout_width="@dimen/settingsPageNameWidth"
+            <TextView
+                android:id="@+id/PlayerTwoNameLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="20dp"
-                android:layout_gravity="center">>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/settingsPageTextSize"
-                    android:textStyle="bold"
-                    android:background="@color/darkRed"
-                    android:text="@string/player_2_name_label"/>
-
-                <TextView
-                    android:id="@+id/PlayerTwoName"
-                    style="@style/Game.EditText"
-                    tools:text="Player One Name"
-                    android:clickable="true"
-                    android:textColorHint="@android:color/black"
-                    android:hint="@string/setup_game_name_hint"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/PlayerTwoIconContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/PlayerTwoIconLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="Player 2 Icon"
-                    android:background="@color/darkRed"
-                    android:textSize="@dimen/settingsPageTextSize"
-                    android:textStyle="bold"
+                android:background="@color/darkRed"
+                android:text="@string/player_2_name_label"
+                android:textSize="@dimen/settingsPageTextSize"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/PlayerTwoName"
+                app:layout_constraintEnd_toStartOf="@+id/PlayerTwoName"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/PlayerTwoName"
                 />
 
-                <Spinner
-                    android:id="@+id/PlayerTwoSpinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:prompt="@string/SelectIcon"
-                    android:background="@drawable/selector_setup_spinner"
+            <EditText
+                android:id="@+id/PlayerTwoName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/setup_game_name_hint"
+                android:textColorHint="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/PlayerTwoNameLabel"
+                app:layout_constraintTop_toBottomOf="@id/PlayerOneSpinner"
+                tools:text="Player One Name"
+                style="@style/Game.EditText"
                 />
 
-            </LinearLayout>
+
+            <TextView
+                android:id="@+id/PlayerTwoIconLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/darkRed"
+                android:padding="10dp"
+                android:text="@string/player_2_icon"
+                android:textSize="@dimen/settingsPageTextSize"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/PlayerTwoSpinner"
+                app:layout_constraintEnd_toStartOf="@+id/PlayerTwoSpinner"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/PlayerTwoSpinner"
+                />
+
+            <Spinner
+                android:id="@+id/PlayerTwoSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_setup_spinner"
+                android:prompt="@string/SelectIcon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/PlayerTwoIconLabel"
+                app:layout_constraintTop_toBottomOf="@+id/PlayerTwoName"
+                />
+
 
             <Button
                 android:id="@+id/startGameButton"
-                style="@style/Game.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/settingsPagePlayGameTopMargin"
                 android:layout_marginBottom="14dp"
+                android:layout_marginTop="@dimen/settingsPagePlayGameTopMargin"
                 android:padding="@dimen/settingsPageStartGamePadding"
                 android:text="@string/start_game"
-                android:textSize="@dimen/settingsPageTextSize" />
+                android:textSize="@dimen/settingsPageTextSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/PlayerTwoSpinner"
+                style="@style/Game.Button"
+                />
 
-        </LinearLayout>
+            <android.support.constraint.Group
+                android:id="@+id/player_two_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="PlayerTwoSpinner,PlayerTwoIconLabel,PlayerTwoName,PlayerTwoNameLabel"
+                />
+
+
+        </android.support.constraint.ConstraintLayout>
+
     </ScrollView>
 
-</RelativeLayout>
+
+</LinearLayout>

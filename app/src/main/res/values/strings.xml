@@ -37,5 +37,8 @@
     <string name="game_title">Barnyard\nTic Tac Toe</string>
     <string name="done_text">Done</string>
     <string name="setup_game_name_hint">Touch to enter name</string>
+    <string name="open_barn_window">Open Barn Window</string>
+    <string name="player_1_icon">Player 1 Icon</string>
+    <string name="player_2_icon">Player 2 Icon</string>
 
 </resources>
