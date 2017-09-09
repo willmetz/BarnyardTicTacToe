@@ -41,4 +41,17 @@
     <string name="player_1_icon">Player 1 Icon</string>
     <string name="player_2_icon">Player 2 Icon</string>
 
+
+    <string name="content_description_cell_0_0">Cell Row 1 Column 1</string>
+    <string name="content_description_cell_0_1">Cell Row 1 Column 2</string>
+    <string name="content_description_cell_0_2">Cell Row 1 Column 3</string>
+
+    <string name="content_description_cell_1_0">Cell Row 2 Column 1</string>
+    <string name="content_description_cell_1_1">Cell Row 2 Column 2</string>
+    <string name="content_description_cell_1_2">Cell Row 2 Column 3</string>
+
+    <string name="content_description_cell_2_0">Cell Row 3 Column 1</string>
+    <string name="content_description_cell_2_1">Cell Row 3 Column 2</string>
+    <string name="content_description_cell_2_2">Cell Row 3 Column 3</string>
+
 </resources>

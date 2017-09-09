@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/barn_pic"
+    >
+
+
+    <!-- Row #1 -->
+    <ImageButton
+        android:id="@+id/Cell_0_0"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:layout_marginStart="32dp"
+        android:contentDescription="@string/content_description_cell_0_0"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Cell_0_1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".3"
+        />
+
+    <ImageButton
+        android:id="@+id/Cell_0_1"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:contentDescription="@string/content_description_cell_0_1"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintBottom_toBottomOf="@id/Cell_0_0"
+        app:layout_constraintEnd_toStartOf="@+id/Cell_0_2"
+        app:layout_constraintStart_toEndOf="@id/Cell_0_0"
+        app:layout_constraintTop_toTopOf="@id/Cell_0_0"
+        />
+
+    <ImageButton
+        android:id="@+id/Cell_0_2"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/content_description_cell_0_2"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintBottom_toBottomOf="@id/Cell_0_0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Cell_0_1"
+        app:layout_constraintTop_toTopOf="@id/Cell_0_0"
+        />
+
+    <!-- Row #2 -->
+    <ImageButton
+        android:id="@+id/Cell_1_0"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/content_description_cell_1_0"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintEnd_toStartOf="@+id/Cell_1_1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/Cell_0_0"
+        app:layout_constraintTop_toBottomOf="@id/Cell_0_0"
+        />
+
+    <ImageButton
+        android:id="@+id/Cell_1_1"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:contentDescription="@string/content_description_cell_1_1"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintEnd_toStartOf="@id/Cell_1_2"
+        app:layout_constraintStart_toEndOf="@+id/Cell_1_0"
+        app:layout_constraintTop_toTopOf="@id/Cell_1_0"
+        />
+
+    <ImageButton
+        android:id="@+id/Cell_1_2"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:contentDescription="@string/content_description_cell_1_2"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintEnd_toEndOf="@id/Cell_0_2"
+        app:layout_constraintStart_toEndOf="@+id/Cell_1_1"
+        app:layout_constraintTop_toTopOf="@id/Cell_1_0"
+        />
+
+
+    <!-- Row #3 -->
+    <ImageButton
+        android:id="@+id/Cell_2_0"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/content_description_cell_2_0"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintEnd_toStartOf="@+id/Cell_2_1"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="@id/Cell_0_0"
+        app:layout_constraintTop_toBottomOf="@id/Cell_1_0"
+        />
+
+    <ImageButton
+        android:id="@+id/Cell_2_1"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:contentDescription="@string/content_description_cell_2_1"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintBottom_toBottomOf="@id/Cell_2_0"
+        app:layout_constraintEnd_toStartOf="@+id/Cell_2_2"
+        app:layout_constraintStart_toEndOf="@id/Cell_2_0"
+        />
+
+    <ImageButton
+        android:id="@+id/Cell_2_2"
+        android:layout_width="@dimen/gameCellDimensionsNormal"
+        android:layout_height="@dimen/gameCellDimensionsNormal"
+        android:contentDescription="@string/content_description_cell_2_2"
+        android:scaleType="fitXY"
+        android:src="@drawable/empty"
+        app:layout_constraintBottom_toBottomOf="@id/Cell_2_0"
+        app:layout_constraintEnd_toEndOf="@id/Cell_0_2"
+        app:layout_constraintStart_toEndOf="@id/Cell_2_1"
+        />
+
+
+    <!-- Create a Text Prompt for which player is up -->
+
+    <TextView
+        android:id="@+id/PlayerOneWinCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/scoreTextSizeNormal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Player One: 0 Wins"
+        />
+
+    <TextView
+        android:id="@+id/PlayerTwoWinCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/scoreTextSizeNormal"
+        app:layout_constraintBottom_toBottomOf="@id/PlayerOneWinCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Player Two: 0 Wins"
+        />
+    <TextView
+        android:id="@+id/GamePromptText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/playerTurnTextSizeNormal"
+        app:layout_constraintBottom_toTopOf="@id/PlayerOneWinCount"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Cell_2_0"
+        tools:text="Player One's Turn"
+        />
+</android.support.constraint.ConstraintLayout>
