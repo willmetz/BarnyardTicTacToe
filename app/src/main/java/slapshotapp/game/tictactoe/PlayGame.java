@@ -24,13 +24,6 @@ public abstract class PlayGame extends AppCompatActivity implements FragmentAler
     protected DialogFragment _gameOverDialog;
 
     /*
-     * Called when the game board is clicked
-     *
-     * @param target Item clicked
-     */
-    public abstract void GameBoardClickListener(View target);
-
-    /*
      * Called when the game is first started.  Only called once.
      */
     public abstract void InitGame();
@@ -94,6 +87,15 @@ public abstract class PlayGame extends AppCompatActivity implements FragmentAler
         this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         InitGame();
+    }
+
+    /*
+     * Called when the game board is clicked
+     *
+     * @param target Item clicked
+     */
+    public void GameBoardClickListener(View target){
+        BoardMove(target.getId());
     }
 
     @Override public void onBackPressed() {
@@ -170,82 +172,6 @@ public abstract class PlayGame extends AppCompatActivity implements FragmentAler
         }
 
         return true;
-    }
-
-    @OnClick({ R.id.Cell_0_0, R.id.Cell_0_1, R.id.Cell_0_2, R.id.Cell_1_0, R.id.Cell_1_1, R.id.Cell_1_2,
-        R.id.Cell_2_0, R.id.Cell_2_1, R.id.Cell_2_2 })
-    public Cell GameCellClicked(View view) {
-        int playerMoveRow, playerMoveCol;
-        boolean moveAllowed = false;
-
-        switch (view.getId()) {
-            // 3 X 3 game
-            case R.id.Cell_0_0:
-                playerMoveRow = 0;
-                playerMoveCol = 0;
-                break;
-            case R.id.Cell_0_1:
-                playerMoveRow = 0;
-                playerMoveCol = 1;
-                break;
-            case R.id.Cell_0_2:
-                playerMoveRow = 0;
-                playerMoveCol = 2;
-                break;
-            case R.id.Cell_1_0:
-                playerMoveRow = 1;
-                playerMoveCol = 0;
-                break;
-            case R.id.Cell_1_1:
-                playerMoveRow = 1;
-                playerMoveCol = 1;
-                break;
-            case R.id.Cell_1_2:
-                playerMoveRow = 1;
-                playerMoveCol = 2;
-                break;
-            case R.id.Cell_2_0:
-                playerMoveRow = 2;
-                playerMoveCol = 0;
-                break;
-            case R.id.Cell_2_1:
-                playerMoveRow = 2;
-                playerMoveCol = 1;
-                break;
-            case R.id.Cell_2_2:
-                playerMoveRow = 2;
-                playerMoveCol = 2;
-                break;
-
-            default://should never get here, this is just to remove warnings
-                playerMoveRow = 0;
-                playerMoveCol = 0;
-        }
-
-        //attempt to make the move
-        moveAllowed =
-            _MyGame.MakeMove(playerMoveRow, playerMoveCol, _CurrentPlayer.GetSymbolImage(),
-                _CurrentPlayer.GetPlayerID());
-
-        if (moveAllowed) {
-            //play the sound (if sound enabled)
-            if (_SoundOn) {
-                _CurrentPlayer.PlaySoundEffect();
-            }
-
-            //set the symbol in the button to the current player marker
-            this.updateScreen();
-
-            if (!gameOver())//check to see if the game is over
-            {
-                //switch to the next player
-                this.nextPlayer();
-            }
-
-            return new Cell(playerMoveRow, playerMoveCol, null);
-        }//end moveAllowed
-
-        return null;
     }
 
     /*
