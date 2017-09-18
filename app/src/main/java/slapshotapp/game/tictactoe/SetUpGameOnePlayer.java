@@ -38,8 +38,7 @@ public class SetUpGameOnePlayer extends SetUpGame {
         }
 
         //As this is a one player game we only need to show player 1 setup info
-        playerTwoNameContainer.setVisibility(View.GONE);
-        playerTwoIconContainer.setVisibility(View.GONE);
+        playerTwoGroup.setVisibility(View.GONE);
     }
 
     @Override public void onItemSelected(AdapterView<?> adapterView, View viewClicked, int position,

@@ -78,8 +78,7 @@ public class SetUpGameBluetooth extends SetUpGame
         }
 
         //get the player two info fields as this game does not require them to be displayed
-        playerTwoNameContainer.setVisibility(View.GONE);
-        playerTwoIconContainer.setVisibility(View.GONE);
+        playerTwoGroup.setVisibility(View.GONE);
 
         //update the labels for the player name and icon for this game
         _PlayerTwoName.setText(R.string.OnePlayerNameLabel);

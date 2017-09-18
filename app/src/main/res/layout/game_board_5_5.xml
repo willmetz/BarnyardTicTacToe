@@ -11,11 +11,11 @@
     <!-- Row #1 -->
     <ImageButton
         android:id="@+id/Five_Five_Cell_0_0"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
         android:layout_marginStart="16dp"
         android:layout_marginTop="150dp"
-        android:background="null"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_0_0"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -28,9 +28,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_0_1"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_0_1"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -42,9 +42,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_0_2"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_0_2"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -56,9 +56,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_0_3"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_0_3"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -70,10 +70,10 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_0_4"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
         android:layout_marginEnd="16dp"
-        android:background="null"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_0_4"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -86,10 +86,10 @@
     <!-- Row #2 -->
     <ImageButton
         android:id="@+id/Five_Five_Cell_1_0"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
         android:layout_marginTop="16dp"
-        android:background="null"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_1_0"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -102,10 +102,10 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_1_1"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_margin="@dimen/cellSpacingNormal"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:layout_margin="@dimen/cellSpacing"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_1_1"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -117,10 +117,10 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_1_2"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_margin="@dimen/cellSpacingNormal"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:layout_margin="@dimen/cellSpacing"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_1_2"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -132,10 +132,10 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_1_3"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_margin="@dimen/cellSpacingNormal"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:layout_margin="@dimen/cellSpacing"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_1_3"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -147,10 +147,10 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_1_4"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_margin="@dimen/cellSpacingNormal"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:layout_margin="@dimen/cellSpacing"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_1_4"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -164,10 +164,10 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_2_0"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
         android:layout_marginTop="16dp"
-        android:background="null"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_2_0"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -180,9 +180,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_2_1"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_2_1"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -194,9 +194,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_2_2"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_2_2"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -208,9 +208,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_2_3"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_2_3"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -222,9 +222,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_2_4"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_2_4"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -237,10 +237,10 @@
     <!-- Row #4 -->
     <ImageButton
         android:id="@+id/Five_Five_Cell_3_0"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
         android:layout_marginTop="16dp"
-        android:background="null"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_3_0"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -253,9 +253,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_3_1"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_3_1"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -267,9 +267,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_3_2"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_3_2"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -281,9 +281,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_3_3"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_3_3"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -295,9 +295,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_3_4"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_3_4"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -311,10 +311,10 @@
     <!-- Row #5 -->
     <ImageButton
         android:id="@+id/Five_Five_Cell_4_0"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
         android:layout_marginTop="16dp"
-        android:background="null"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_4_0"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -327,9 +327,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_4_1"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_4_1"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -341,9 +341,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_4_2"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_4_2"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -355,9 +355,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_4_3"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_4_3"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -369,9 +369,9 @@
 
     <ImageButton
         android:id="@+id/Five_Five_Cell_4_4"
-        android:layout_width="@dimen/gameCellDimensionsNormal_5_5"
-        android:layout_height="@dimen/gameCellDimensionsNormal_5_5"
-        android:background="null"
+        android:layout_width="@dimen/gameCellDimensions_5_5"
+        android:layout_height="@dimen/gameCellDimensions_5_5"
+        android:background="@null"
         android:contentDescription="@string/content_description_cell_4_4"
         android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
@@ -389,7 +389,7 @@
         android:layout_marginBottom="4dp"
         android:layout_marginStart="8dp"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/scoreTextSizeNormal"
+        android:textSize="@dimen/scoreTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Player One: 0 Wins"
@@ -401,7 +401,7 @@
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/scoreTextSizeNormal"
+        android:textSize="@dimen/scoreTextSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Player Two: 0 Wins"
@@ -411,7 +411,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/playerTurnTextSizeNormal"
+        android:textSize="@dimen/playerTurnTextSize"
         app:layout_constraintBottom_toTopOf="@id/Five_Five_PlayerOneWinCount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

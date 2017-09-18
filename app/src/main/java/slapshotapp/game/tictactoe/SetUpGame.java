@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.constraint.Group;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -59,9 +60,8 @@ public abstract class SetUpGame extends AppCompatActivity
 
     @BindView(R.id.PlayerOneName) protected TextView _PlayerOneName;
 
-    @BindView(R.id.PlayerTwoIconContainer) LinearLayout playerTwoIconContainer;
-
-    @BindView(R.id.playerTwoNameContainer) LinearLayout playerTwoNameContainer;
+    @BindView(R.id.player_two_group)
+    Group playerTwoGroup;
 
     public abstract void startGame(Bundle bundle);
 

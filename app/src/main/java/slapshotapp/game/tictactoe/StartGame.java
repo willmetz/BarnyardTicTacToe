@@ -20,7 +20,7 @@ public class StartGame extends AppCompatActivity {
 
     private final int REQUEST_ENABLE_BT = 1237;
 
-    @BindView(R.id.VersionInfo) TextView versionString;
+    @BindView(R.id.version_info) TextView versionString;
 
     @BindView(R.id.bluetoothButton) Button blueToothGameButton;
 
@@ -77,7 +77,7 @@ public class StartGame extends AppCompatActivity {
     }
 
     private String getVersionString() {
-        String version;
+        String version = "";
 
         //attempt to read the version string from the manifest xml file
         try {
