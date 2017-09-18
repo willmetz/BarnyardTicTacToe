@@ -45,13 +45,30 @@
     <string name="content_description_cell_0_0">Cell Row 1 Column 1</string>
     <string name="content_description_cell_0_1">Cell Row 1 Column 2</string>
     <string name="content_description_cell_0_2">Cell Row 1 Column 3</string>
+    <string name="content_description_cell_0_3">Cell Row 1 Column 4</string>
+    <string name="content_description_cell_0_4">Cell Row 1 Column 5</string>
 
     <string name="content_description_cell_1_0">Cell Row 2 Column 1</string>
     <string name="content_description_cell_1_1">Cell Row 2 Column 2</string>
     <string name="content_description_cell_1_2">Cell Row 2 Column 3</string>
+    <string name="content_description_cell_1_3">Cell Row 2 Column 4</string>
+    <string name="content_description_cell_1_4">Cell Row 2 Column 5</string>
 
     <string name="content_description_cell_2_0">Cell Row 3 Column 1</string>
     <string name="content_description_cell_2_1">Cell Row 3 Column 2</string>
     <string name="content_description_cell_2_2">Cell Row 3 Column 3</string>
+    <string name="content_description_cell_2_3">Cell Row 3 Column 4</string>
+    <string name="content_description_cell_2_4">Cell Row 3 Column 5</string>
 
+    <string name="content_description_cell_3_0">Cell Row 4 Column 1</string>
+    <string name="content_description_cell_3_1">Cell Row 4 Column 2</string>
+    <string name="content_description_cell_3_2">Cell Row 4 Column 3</string>
+    <string name="content_description_cell_3_3">Cell Row 4 Column 4</string>
+    <string name="content_description_cell_3_4">Cell Row 4 Column 5</string>
+
+    <string name="content_description_cell_4_0">Cell Row 5 Column 1</string>
+    <string name="content_description_cell_4_1">Cell Row 5 Column 2</string>
+    <string name="content_description_cell_4_2">Cell Row 5 Column 3</string>
+    <string name="content_description_cell_4_3">Cell Row 5 Column 4</string>
+    <string name="content_description_cell_4_4">Cell Row 5 Column 5</string>
 </resources>
