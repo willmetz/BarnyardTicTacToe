@@ -150,21 +150,6 @@ public class SetUpGameBluetooth extends SetUpGame
         _BoundToBluetoothService = false;
     }
 
-    /*
-     * This method handles the screen callbacks and is over-ridden in this class
-     * to ensure that messages are sent to the other class.
-     *
-     * (non-Javadoc)
-     * @see slapshotapp.game.tictactoe.SetUpGame#SetupScreenClickListener(android.view.View)
-     */
-    public void SetupScreenClickListener(View target) {
-        switch (target.getId()) {
-            case R.id.startGameButton:
-
-                break;
-        }
-    }
-
     @Override public void startGame(Bundle bundle) {
 
         sendBluetoothMessage(BluetoothMessages.PLAYER_NAME_MESSAGE_ID);
@@ -186,11 +171,9 @@ public class SetUpGameBluetooth extends SetUpGame
     }
 
     protected void launchGame() {
-        myIntent = new Intent();
-
-        myIntent.setClassName("slapshotapp.game.tictactoe",
-            "slapshotapp.game.tictactoe.BluetoothGame");
+        myIntent = new Intent(this, BluetoothGame.class);
         myIntent.putExtras(gameBundle);
+
         //launch the activity
         startActivityForResult(myIntent, PLAY_GAME_ID);
     }
@@ -321,7 +304,7 @@ public class SetUpGameBluetooth extends SetUpGame
             }
             case BluetoothMessages.PLAYER_NAME_MESSAGE_ID: {
                 //update player name before sending it
-                _PlayerOne.SetName(getPlayerOneName());
+                _PlayerOne.SetName(_PlayerOneName.getText().toString());
                 slapshotapp.game.support.PlayerNameMessage msg =
                     new slapshotapp.game.support.PlayerNameMessage();
                 msg.SetPlayerName(_PlayerOne.GetName());

@@ -16,15 +16,16 @@
         android:layout_height="@dimen/gameCellDimensions"
         android:layout_marginStart="32dp"
         android:contentDescription="@string/content_description_cell_0_0"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Cell_0_1"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias=".3"
+        style="@style/Game.Cell"
         />
 
     <ImageButton
@@ -32,13 +33,14 @@
         android:layout_width="@dimen/gameCellDimensions"
         android:layout_height="@dimen/gameCellDimensions"
         android:contentDescription="@string/content_description_cell_0_1"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintBottom_toBottomOf="@id/Cell_0_0"
         app:layout_constraintEnd_toStartOf="@+id/Cell_0_2"
         app:layout_constraintStart_toEndOf="@id/Cell_0_0"
         app:layout_constraintTop_toTopOf="@id/Cell_0_0"
+        style="@style/Game.Cell"
         />
 
     <ImageButton
@@ -47,13 +49,14 @@
         android:layout_height="@dimen/gameCellDimensions"
         android:layout_marginEnd="32dp"
         android:contentDescription="@string/content_description_cell_0_2"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintBottom_toBottomOf="@id/Cell_0_0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/Cell_0_1"
         app:layout_constraintTop_toTopOf="@id/Cell_0_0"
+        style="@style/Game.Cell"
         />
 
     <!-- Row #2 -->
@@ -63,13 +66,14 @@
         android:layout_height="@dimen/gameCellDimensions"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/content_description_cell_1_0"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintEnd_toStartOf="@+id/Cell_1_1"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="@id/Cell_0_0"
         app:layout_constraintTop_toBottomOf="@id/Cell_0_0"
+        style="@style/Game.Cell"
         />
 
     <ImageButton
@@ -77,12 +81,13 @@
         android:layout_width="@dimen/gameCellDimensions"
         android:layout_height="@dimen/gameCellDimensions"
         android:contentDescription="@string/content_description_cell_1_1"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintEnd_toStartOf="@id/Cell_1_2"
         app:layout_constraintStart_toEndOf="@+id/Cell_1_0"
         app:layout_constraintTop_toTopOf="@id/Cell_1_0"
+        style="@style/Game.Cell"
         />
 
     <ImageButton
@@ -90,12 +95,13 @@
         android:layout_width="@dimen/gameCellDimensions"
         android:layout_height="@dimen/gameCellDimensions"
         android:contentDescription="@string/content_description_cell_1_2"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintEnd_toEndOf="@id/Cell_0_2"
         app:layout_constraintStart_toEndOf="@+id/Cell_1_1"
         app:layout_constraintTop_toTopOf="@id/Cell_1_0"
+        style="@style/Game.Cell"
         />
 
 
@@ -106,13 +112,14 @@
         android:layout_height="@dimen/gameCellDimensions"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/content_description_cell_2_0"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintEnd_toStartOf="@+id/Cell_2_1"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="@id/Cell_0_0"
         app:layout_constraintTop_toBottomOf="@id/Cell_1_0"
+        style="@style/Game.Cell"
         />
 
     <ImageButton
@@ -120,12 +127,13 @@
         android:layout_width="@dimen/gameCellDimensions"
         android:layout_height="@dimen/gameCellDimensions"
         android:contentDescription="@string/content_description_cell_2_1"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintBottom_toBottomOf="@id/Cell_2_0"
         app:layout_constraintEnd_toStartOf="@+id/Cell_2_2"
         app:layout_constraintStart_toEndOf="@id/Cell_2_0"
+        style="@style/Game.Cell"
         />
 
     <ImageButton
@@ -133,16 +141,15 @@
         android:layout_width="@dimen/gameCellDimensions"
         android:layout_height="@dimen/gameCellDimensions"
         android:contentDescription="@string/content_description_cell_2_2"
+        android:onClick="GameBoardClickListener"
         android:scaleType="fitXY"
         android:src="@drawable/empty"
-        android:onClick="GameBoardClickListener"
         app:layout_constraintBottom_toBottomOf="@id/Cell_2_0"
         app:layout_constraintEnd_toEndOf="@id/Cell_0_2"
         app:layout_constraintStart_toEndOf="@id/Cell_2_1"
+        style="@style/Game.Cell"
         />
 
-
-    <!-- Create a Text Prompt for which player is up -->
 
     <TextView
         android:id="@+id/PlayerOneWinCount"
@@ -152,6 +159,7 @@
         android:layout_marginStart="16dp"
         android:textColor="@android:color/white"
         android:textSize="@dimen/scoreTextSize"
+        android:background="@color/darkRed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Player One: 0 Wins"
@@ -164,6 +172,7 @@
         android:layout_marginEnd="16dp"
         android:textColor="@android:color/white"
         android:textSize="@dimen/scoreTextSize"
+        android:background="@color/darkRed"
         app:layout_constraintBottom_toBottomOf="@id/PlayerOneWinCount"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="Player Two: 0 Wins"
@@ -174,6 +183,7 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:textSize="@dimen/playerTurnTextSize"
+        android:background="@color/darkRed"
         app:layout_constraintBottom_toTopOf="@id/PlayerOneWinCount"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

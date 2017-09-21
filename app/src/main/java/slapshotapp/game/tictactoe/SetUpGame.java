@@ -5,25 +5,22 @@ import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.constraint.Group;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import java.io.IOException;
 import java.util.HashMap;
-import slapshotapp.game.fragments.InputDialogFragment;
 import slapshotapp.game.support.Player;
 
-public abstract class SetUpGame extends AppCompatActivity
-    implements OnItemSelectedListener, InputDialogFragment.ActionListener {
+public abstract class SetUpGame extends AppCompatActivity implements OnItemSelectedListener {
     //public members
     public static final String GAME_BOARD_DIMENSION_KEY =
         "slapshotapp.game.tictactoe.board_dimensions";
@@ -50,31 +47,29 @@ public abstract class SetUpGame extends AppCompatActivity
     protected short _GameBoardDimensions, _GameType;
     protected Player _PlayerOne, _PlayerTwo;
 
-    @BindView(R.id.PlayerOneSpinner) protected Spinner _PlayerOneSpinner;
+    @BindView(R.id.PlayerOneSpinner)
+    protected Spinner _PlayerOneSpinner;
 
-    @BindView(R.id.PlayerTwoSpinner) protected Spinner _PlayerTwoSpinner;
+    @BindView(R.id.PlayerTwoSpinner)
+    protected Spinner _PlayerTwoSpinner;
 
-    @BindView(R.id.gameBoardDimensionSpinner) protected Spinner _GameBoardModeSpinner;
+    @BindView(R.id.gameBoardDimensionSpinner)
+    protected Spinner _GameBoardModeSpinner;
 
-    @BindView(R.id.PlayerTwoName) protected TextView _PlayerTwoName;
+    @BindView(R.id.player_one_name_input)
+    protected TextInputEditText _PlayerOneName;
 
-    @BindView(R.id.PlayerOneName) protected TextView _PlayerOneName;
+    @BindView(R.id.player_two_name_input)
+    protected TextInputEditText _PlayerTwoName;
 
     @BindView(R.id.player_two_group)
     Group playerTwoGroup;
 
     public abstract void startGame(Bundle bundle);
 
-    @OnClick({ R.id.PlayerOneName, R.id.PlayerTwoName }) void playerNameClicked(View view) {
-        if (view == _PlayerOneName) {
-            showPlayerNameDialog("Player One Name", _PlayerOne);
-        } else {
-            showPlayerNameDialog("Player Two Name", _PlayerTwo);
-        }
-    }
-
     /** Called when the activity is first created. */
-    @Override public void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //set the layout to display
@@ -120,18 +115,23 @@ public abstract class SetUpGame extends AppCompatActivity
         _PlayerOne = _PlayerTwo = null;
     }
 
-    @Override protected void onSaveInstanceState(Bundle outState) {
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
         outState.putShort(GAME_BOARD_DIMENSION_KEY, _GameBoardDimensions);
         outState.putCharSequence(PLAYER_ONE_NAME_KEY, _PlayerOne.GetName());
         outState.putCharSequence(PLAYER_ONE_ICON_KEY, _PlayerOne.GetSymbolValue());
         outState.putCharSequence(PLAYER_TWO_NAME_KEY, _PlayerTwo.GetName());
         outState.putCharSequence(PLAYER_TWO_ICON_KEY, _PlayerTwo.GetSymbolValue());
+
+        super.onSaveInstanceState(outState);
     }
 
     /*
      * Starts the game activity.
      */
-    @OnClick(R.id.startGameButton) public void startGameButtonClicked() {
+    @OnClick(R.id.startGameButton)
+    public void startGameButtonClicked() {
 
         //create a bundle for the data to pass the game
         Bundle b = new Bundle();
@@ -170,23 +170,6 @@ public abstract class SetUpGame extends AppCompatActivity
     public void onNothingSelected(AdapterView<?> arg0) {
         // just need to implement method, do nothing
 
-    }
-
-    public void showPlayerNameDialog(String title, Player player) {
-        String currentName = player.GetName();
-
-        InputDialogFragment dialogFragment;
-
-        if (player.isNameDefault()) {
-            dialogFragment = InputDialogFragment.newInstance(title, null, player.GetPlayerID());
-        } else {
-            dialogFragment =
-                InputDialogFragment.newInstance(title, currentName, player.GetPlayerID());
-        }
-
-        dialogFragment.setListener(this);
-
-        dialogFragment.show(getSupportFragmentManager(), "dialogTag");
     }
 
     /*
@@ -325,7 +308,8 @@ public abstract class SetUpGame extends AppCompatActivity
         try {
             //attempt to close the file descriptor
             fd.close();
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
             Log.e(TAG, "IO Exception when closing file descriptor\n");
         }
@@ -343,16 +327,6 @@ public abstract class SetUpGame extends AppCompatActivity
                 setResult(resultCode);
                 finish();
             }
-        }
-    }
-
-    @Override public void onNameEntered(String name, int playerNumber) {
-        if (_PlayerOne.GetPlayerID() == playerNumber) {
-            _PlayerOne.SetName(name);
-            _PlayerOneName.setText(name);
-        } else {
-            _PlayerTwo.SetName(name);
-            _PlayerTwoName.setText(name);
         }
     }
 }

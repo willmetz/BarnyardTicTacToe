@@ -71,4 +71,6 @@
     <string name="content_description_cell_4_2">Cell Row 5 Column 3</string>
     <string name="content_description_cell_4_3">Cell Row 5 Column 4</string>
     <string name="content_description_cell_4_4">Cell Row 5 Column 5</string>
+    <string name="player_one_name_hint">Player 1 Name</string>
+    <string name="player_two_name_hint">Player Two Name</string>
 </resources>

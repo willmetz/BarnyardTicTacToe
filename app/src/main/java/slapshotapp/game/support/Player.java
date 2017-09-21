@@ -163,7 +163,7 @@ public class Player {
     }
 
     public void SetName(String pName) {
-        if (pName != null) {
+        if (pName != null && !pName.isEmpty()) {
             _Name = pName;
             nameIsDefault = false;
         }

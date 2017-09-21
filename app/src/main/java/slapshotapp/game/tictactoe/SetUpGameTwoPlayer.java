@@ -37,11 +37,17 @@ public class SetUpGameTwoPlayer extends SetUpGame {
     }
 
     @Override public void startGame(Bundle bundle) {
-        myIntent = new Intent();
-
-        myIntent.setClassName("slapshotapp.game.tictactoe",
-            "slapshotapp.game.tictactoe.TwoPlayerGame");
+        myIntent = new Intent(this, TwoPlayerGame.class);
         myIntent.putExtras(bundle);
+
+        if(_PlayerOne != null){
+            _PlayerOne.SetName(_PlayerOneName.getText().toString());
+        }
+
+        if(_PlayerTwo != null){
+            _PlayerTwo.SetName(_PlayerTwoName.getText().toString());
+        }
+
         //launch the activity
         startActivityForResult(myIntent, PLAY_GAME_ID);
     }

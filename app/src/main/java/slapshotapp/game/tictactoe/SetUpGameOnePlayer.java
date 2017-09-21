@@ -1,16 +1,24 @@
 package slapshotapp.game.tictactoe;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import java.util.Random;
 import slapshotapp.game.support.Player;
 
 public class SetUpGameOnePlayer extends SetUpGame {
 
     /** Called when the activity is first created. */
-    @Override public void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         _GameType = StartGame.ONE_PLAYER_GAME;
@@ -39,9 +47,26 @@ public class SetUpGameOnePlayer extends SetUpGame {
 
         //As this is a one player game we only need to show player 1 setup info
         playerTwoGroup.setVisibility(View.GONE);
+
+        _PlayerOneName.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        _PlayerOneName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionID, KeyEvent keyEvent) {
+                InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(
+                    Context.INPUT_METHOD_SERVICE);
+
+                if(actionID == EditorInfo.IME_ACTION_DONE && keyEvent.getAction() == KeyEvent.ACTION_DOWN && inputMethodManager != null){
+                    inputMethodManager.hideSoftInputFromWindow(_PlayerOneName.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
-    @Override public void onItemSelected(AdapterView<?> adapterView, View viewClicked, int position,
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View viewClicked, int position,
         long rowId) {
         super.onItemSelected(adapterView, viewClicked, position, rowId);
 
@@ -68,12 +93,16 @@ public class SetUpGameOnePlayer extends SetUpGame {
         this.setPlayerSoundEffect(computerPlayerIcon, _PlayerTwo);
     }
 
-    @Override public void startGame(Bundle bundle) {
-        myIntent = new Intent();
-
-        myIntent.setClassName("slapshotapp.game.tictactoe",
-            "slapshotapp.game.tictactoe.OnePlayerGame");
+    @Override
+    public void startGame(Bundle bundle) {
+        myIntent = new Intent(this, OnePlayerGame.class);
         myIntent.putExtras(bundle);
+
+        if(_PlayerOne != null){
+            String name = _PlayerOneName.getText().toString();
+            _PlayerOne.SetName(name);
+        }
+
         //launch the activity
         startActivityForResult(myIntent, PLAY_GAME_ID);
     }

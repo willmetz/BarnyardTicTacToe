@@ -4,6 +4,10 @@
     <dimen name="titleBarTextSize">80sp</dimen>
     <dimen name="titlePageButtonTextSize">40sp</dimen>
     <dimen name="titlePageButtonWidth">300dp</dimen>
+    <dimen name="titlePageTopButtonMargin">100dp</dimen>
+    <dimen name="titlePageVersionTextSize">35sp</dimen>
+
+
     <dimen name="settingsPageNameWidth">600dp</dimen>
     <dimen name="settingsPageTopMargin">200dp</dimen>
     <dimen name="settingsPagePlayGameTopMargin">180dp</dimen>
@@ -13,9 +17,10 @@
 
     <dimen name="gameCellDimensions">200dp</dimen>
     <dimen name="gameCellDimensions_5_5">125dp</dimen>
-    <dimen name="scoreTextSize">30sp</dimen>
+    <dimen name="scoreTextSize">40sp</dimen>
     <dimen name="playerTurnTextSize">45sp</dimen>
     <dimen name="cellSpacing">6dip</dimen>
-    <dimen name="actionButtonTextSize">40sp</dimen>
-    <dimen name="actionButtonWidth">240dp</dimen>
+
+    <dimen name="actionButtonWidth">300dp</dimen>
+    <dimen name="actionButtonTextSize">35sp</dimen>
 </resources>

@@ -61,36 +61,27 @@
                 />
 
             <!-- Player One Labels -->
-
-            <TextView
-                android:id="@+id/player_one_name_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:background="@color/darkRed"
-                android:text="@string/player_1_name_label"
-                android:textSize="@dimen/settingsPageTextSize"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/PlayerOneName"
-                app:layout_constraintEnd_toStartOf="@+id/PlayerOneName"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/PlayerOneName"
-                />
-
-            <EditText
-                android:id="@+id/PlayerOneName"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/player_one_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:hint="@string/setup_game_name_hint"
-                android:textColorHint="@android:color/black"
+                android:layout_marginEnd="8dp"
+                android:background="@color/darkRed"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/player_one_name_label"
-                app:layout_constraintTop_toBottomOf="@id/barn_door"
-                tools:text="Player One Name"
-                style="@style/Game.EditText"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/barn_door">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/player_one_name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:maxLines="1"
+                    android:hint="@string/player_one_name_hint"
+                    android:textColorHint="@android:color/black"/>
+
+            </android.support.design.widget.TextInputLayout>
 
 
             <TextView
@@ -119,46 +110,39 @@
                 android:prompt="@string/SelectIcon"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/PlayerOneIconLabel"
-                app:layout_constraintTop_toBottomOf="@id/PlayerOneName"
+                app:layout_constraintTop_toBottomOf="@id/player_one_name"
                 />
 
             <android.support.constraint.Group
                 android:id="@+id/player_one_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="PlayerOneSpinner,PlayerOneIconLabel,PlayerOneName,player_one_name_label"
+                app:constraint_referenced_ids="PlayerOneSpinner,PlayerOneIconLabel,player_one_name"
                 />
 
 
             <!-- Player Two Labels -->
-            <TextView
-                android:id="@+id/PlayerTwoNameLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/darkRed"
-                android:text="@string/player_2_name_label"
-                android:textSize="@dimen/settingsPageTextSize"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/PlayerTwoName"
-                app:layout_constraintEnd_toStartOf="@+id/PlayerTwoName"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/PlayerTwoName"
-                />
-
-            <EditText
-                android:id="@+id/PlayerTwoName"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/player_two_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/setup_game_name_hint"
-                android:textColorHint="@android:color/black"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/darkRed"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/PlayerTwoNameLabel"
-                app:layout_constraintTop_toBottomOf="@id/PlayerOneSpinner"
-                tools:text="Player One Name"
-                style="@style/Game.EditText"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/PlayerOneSpinner">
 
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/player_two_name_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/player_two_name_hint"
+                    android:textSize="20sp"
+                    android:maxLines="1"
+                    android:textColorHint="@android:color/black"/>
+
+            </android.support.design.widget.TextInputLayout>
 
             <TextView
                 android:id="@+id/PlayerTwoIconLabel"
@@ -176,6 +160,8 @@
                 app:layout_constraintTop_toTopOf="@+id/PlayerTwoSpinner"
                 />
 
+
+
             <Spinner
                 android:id="@+id/PlayerTwoSpinner"
                 android:layout_width="wrap_content"
@@ -183,9 +169,8 @@
                 android:background="@drawable/selector_setup_spinner"
                 android:prompt="@string/SelectIcon"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toEndOf="@+id/PlayerTwoIconLabel"
-                app:layout_constraintTop_toBottomOf="@+id/PlayerTwoName"
+                app:layout_constraintTop_toBottomOf="@+id/player_two_name"
                 />
 
 
@@ -209,7 +194,7 @@
                 android:id="@+id/player_two_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="PlayerTwoSpinner,PlayerTwoIconLabel,PlayerTwoName,PlayerTwoNameLabel"
+                app:constraint_referenced_ids="PlayerTwoSpinner,PlayerTwoIconLabel,player_two_name"
                 />
 
 
