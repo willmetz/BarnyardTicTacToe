@@ -19,4 +19,8 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <style name="Game.HintSize" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/settingsPageTextSize</item>
+    </style>
+
 </resources>

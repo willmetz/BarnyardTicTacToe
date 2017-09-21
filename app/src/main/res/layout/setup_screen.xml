@@ -54,10 +54,10 @@
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/open_barn_window"
                 android:src="@drawable/barn_door"
+                app:layout_constraintDimensionRatio="@string/settings_page_barn_door_ratio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gameBoardDimensionSpinner"
-                app:layout_constraintDimensionRatio="@string/settings_page_barn_door_ratio"
                 />
 
             <!-- Player One Labels -->
@@ -69,6 +69,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="@dimen/settingsPageInputMarginTop"
                 android:background="@color/darkRed"
+                app:hintTextAppearance="@style/Game.HintSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/barn_door">
@@ -131,6 +132,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="@dimen/settingsPageInputMarginTop"
                 android:background="@color/darkRed"
+                app:hintTextAppearance="@style/Game.HintSize"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/PlayerOneSpinner">
