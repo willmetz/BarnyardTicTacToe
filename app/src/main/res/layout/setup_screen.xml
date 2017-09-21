@@ -2,7 +2,6 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/barn_pic"
@@ -15,7 +14,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="@dimen/settingsPageTopMargin"
         android:background="@android:color/transparent"
         android:paddingBottom="16dp">
 
@@ -50,14 +49,15 @@
 
             <ImageView
                 android:id="@+id/barn_door"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="@string/open_barn_window"
                 android:src="@drawable/barn_door"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gameBoardDimensionSpinner"
+                app:layout_constraintDimensionRatio="@string/settings_page_barn_door_ratio"
                 />
 
             <!-- Player One Labels -->
@@ -65,8 +65,9 @@
                 android:id="@+id/player_one_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/settingsPageInputMarginTop"
                 android:background="@color/darkRed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,10 +77,10 @@
                     android:id="@+id/player_one_name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:maxLines="1"
                     android:hint="@string/player_one_name_hint"
-                    android:textColorHint="@android:color/black"/>
+                    android:maxLines="1"
+                    android:textColorHint="@android:color/black"
+                    android:textSize="@dimen/settingsPageNameTextSize"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -104,7 +105,7 @@
                 android:id="@+id/PlayerOneSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/setupPageSpinnerTopMargin"
                 android:background="@drawable/selector_setup_spinner"
                 android:drawSelectorOnTop="true"
                 android:prompt="@string/SelectIcon"
@@ -126,8 +127,9 @@
                 android:id="@+id/player_two_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="@dimen/settingsPageInputMarginTop"
                 android:background="@color/darkRed"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -138,9 +140,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/player_two_name_hint"
-                    android:textSize="20sp"
                     android:maxLines="1"
-                    android:textColorHint="@android:color/black"/>
+                    android:textColorHint="@android:color/black"
+                    android:textSize="@dimen/settingsPageNameTextSize"/>
 
             </android.support.design.widget.TextInputLayout>
 
@@ -161,11 +163,11 @@
                 />
 
 
-
             <Spinner
                 android:id="@+id/PlayerTwoSpinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/setupPageSpinnerTopMargin"
                 android:background="@drawable/selector_setup_spinner"
                 android:prompt="@string/SelectIcon"
                 app:layout_constraintEnd_toEndOf="parent"

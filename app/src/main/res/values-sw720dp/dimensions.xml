@@ -12,7 +12,12 @@
     <dimen name="settingsPageTopMargin">200dp</dimen>
     <dimen name="settingsPagePlayGameTopMargin">180dp</dimen>
     <dimen name="settingsPageStartGamePadding">20dp</dimen>
-    <dimen name="settingsPageTextSize">40sp</dimen>
+    <dimen name="settingsPageTextSize">50sp</dimen>
+    <dimen name="settingsPageInputMarginTop">40dp</dimen>
+    <dimen name="settingsPageSpinnerTopMargin">40dp</dimen>
+    <dimen name="settingsPageNameTextSize">40sp</dimen>
+    <dimen name="setupPageSpinnerTopMargin">24dp</dimen>
+    <string name="settings_page_barn_door_ratio">5:2</string>
 
 
     <dimen name="gameCellDimensions">200dp</dimen>
