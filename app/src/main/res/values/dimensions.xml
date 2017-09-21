@@ -24,6 +24,7 @@
     <dimen name="scoreTextSize">20sp</dimen>
     <dimen name="playerTurnTextSize">30sp</dimen>
     <dimen name="cellSpacing">3dp</dimen>
+    <dimen name="five_five_top_margin">160dp</dimen>
 
     <dimen name="actionButtonWidth">180dp</dimen>
     <dimen name="actionButtonTextSize">25sp</dimen>

@@ -18,7 +18,7 @@
     <dimen name="settingsPageNameTextSize">40sp</dimen>
     <dimen name="setupPageSpinnerTopMargin">24dp</dimen>
     <string name="settings_page_barn_door_ratio">5:2</string>
-
+    <dimen name="five_five_top_margin">300dp</dimen>
 
     <dimen name="gameCellDimensions">200dp</dimen>
     <dimen name="gameCellDimensions_5_5">125dp</dimen>

@@ -14,7 +14,7 @@
         android:layout_width="@dimen/gameCellDimensions_5_5"
         android:layout_height="@dimen/gameCellDimensions_5_5"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="@dimen/five_five_top_margin"
         android:background="@null"
         android:contentDescription="@string/content_description_cell_0_0"
         android:onClick="GameBoardClickListener"
