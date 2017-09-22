@@ -1,4 +1,4 @@
-package slapshotapp.game.support;
+package slapshotapp.game.support.bluetooth_protocol;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

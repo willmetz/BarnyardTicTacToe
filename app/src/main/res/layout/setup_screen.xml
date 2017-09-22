@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/settingsPageTopMargin"
         android:background="@android:color/transparent"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
         android:paddingBottom="16dp">
 
         <android.support.constraint.ConstraintLayout

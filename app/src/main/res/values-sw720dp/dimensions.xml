@@ -9,22 +9,23 @@
 
 
     <dimen name="settingsPageNameWidth">600dp</dimen>
-    <dimen name="settingsPageTopMargin">200dp</dimen>
-    <dimen name="settingsPagePlayGameTopMargin">180dp</dimen>
+    <dimen name="settingsPageTopMargin">80dp</dimen>
+    <dimen name="settingsPagePlayGameTopMargin">56dp</dimen>
     <dimen name="settingsPageStartGamePadding">20dp</dimen>
-    <dimen name="settingsPageTextSize">50sp</dimen>
-    <dimen name="settingsPageInputMarginTop">40dp</dimen>
+    <dimen name="settingsPageTextSize">35sp</dimen>
+    <dimen name="settingsPageInputMarginTop">24dp</dimen>
     <dimen name="settingsPageSpinnerTopMargin">40dp</dimen>
-    <dimen name="settingsPageNameTextSize">40sp</dimen>
+    <dimen name="settingsPageNameTextSize">30sp</dimen>
     <dimen name="setupPageSpinnerTopMargin">24dp</dimen>
-    <string name="settings_page_barn_door_ratio">5:2</string>
-    <dimen name="five_five_top_margin">300dp</dimen>
+    <string name="settings_page_barn_door_ratio">6:2</string>
 
-    <dimen name="gameCellDimensions">200dp</dimen>
+
+    <dimen name="five_five_top_margin">300dp</dimen>
+    <dimen name="gameCellDimensions">150dp</dimen>
     <dimen name="gameCellDimensions_5_5">125dp</dimen>
-    <dimen name="scoreTextSize">40sp</dimen>
+    <dimen name="scoreTextSize">35sp</dimen>
     <dimen name="playerTurnTextSize">45sp</dimen>
-    <dimen name="cellSpacing">6dip</dimen>
+    <dimen name="cellSpacing">6dp</dimen>
 
     <dimen name="actionButtonWidth">300dp</dimen>
     <dimen name="actionButtonTextSize">35sp</dimen>

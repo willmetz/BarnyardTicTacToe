@@ -1,7 +1,8 @@
-package slapshotapp.game.support;
+package slapshotapp.game.support.bluetooth_protocol;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import slapshotapp.game.support.bluetooth_protocol.BluetoothMessages;
 
 public class MoveMessage extends BluetoothMessages {
     protected int _Column, _Row;
@@ -53,7 +54,7 @@ public class MoveMessage extends BluetoothMessages {
 
     /*
      * (non-Javadoc)
-     * @see slapshotapp.game.support.BluetoothMessages#populateObjectFromBytes(java.nio.ByteBuffer)
+     * @see slapshotapp.game.support.bluetooth_protocol.BluetoothMessages#populateObjectFromBytes(java.nio.ByteBuffer)
      * Populates the contents of the message from a byte buffer.
      *
      * @param msgBuffer A ByteBuffer from which to populate the object's data from
@@ -66,7 +67,7 @@ public class MoveMessage extends BluetoothMessages {
 
     /*
      * (non-Javadoc)
-     * @see slapshotapp.game.support.BluetoothMessages#convertObjectToBytes()
+     * @see slapshotapp.game.support.bluetooth_protocol.BluetoothMessages#convertObjectToBytes()
      * Converts the data of this object to a byte buffer
      *
      * @return a ByteBuffer containing the data of this object

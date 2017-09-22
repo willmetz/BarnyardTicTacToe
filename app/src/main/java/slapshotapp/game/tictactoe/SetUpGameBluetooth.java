@@ -20,11 +20,15 @@ import android.widget.Toast;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;
-import slapshotapp.game.support.BluetoothMessages;
+import slapshotapp.game.support.bluetooth_protocol.BluetoothMessages;
 import slapshotapp.game.support.FragmentAlertDialog;
 import slapshotapp.game.support.MyAlertDialogFragment;
 import slapshotapp.game.support.Player;
 import slapshotapp.game.support.TicTacToeDBHelper;
+import slapshotapp.game.support.bluetooth_protocol.BoardSizeMessage;
+import slapshotapp.game.support.bluetooth_protocol.PlayerImageMessage;
+import slapshotapp.game.support.bluetooth_protocol.PlayerNameMessage;
+import slapshotapp.game.support.bluetooth_protocol.StartMessage;
 import slapshotapp.game.tictactoe.BluetoothService.LocalBinder;
 
 public class SetUpGameBluetooth extends SetUpGame
@@ -210,13 +214,13 @@ public class SetUpGameBluetooth extends SetUpGame
      * @param msg A byte array that contains the message received.
      */
     protected void processMessage(byte[] dataIn) {
-        slapshotapp.game.support.BluetoothMessages baseMsg =
-            new slapshotapp.game.support.BluetoothMessages(dataIn);
+        BluetoothMessages baseMsg =
+            new BluetoothMessages(dataIn);
 
         switch (baseMsg.getMessageID()) {
             case BluetoothMessages.BOARD_SIZE_MESSAGE_ID: {
-                slapshotapp.game.support.BoardSizeMessage msg =
-                    new slapshotapp.game.support.BoardSizeMessage(dataIn);
+                BoardSizeMessage msg =
+                    new BoardSizeMessage(dataIn);
 
                 if (msg.GetBoardSize() == THREE_BY_THREE) {
                     _GameBoardModeSpinner.setSelection(THREE_BY_THREE);
@@ -227,8 +231,8 @@ public class SetUpGameBluetooth extends SetUpGame
                 break;
             }
             case BluetoothMessages.PLAYER_NAME_MESSAGE_ID: {
-                slapshotapp.game.support.PlayerNameMessage msg =
-                    new slapshotapp.game.support.PlayerNameMessage(dataIn);
+                PlayerNameMessage msg =
+                    new PlayerNameMessage(dataIn);
 
                 //Verify that the name received is valid
                 if (msg.GetPlayerName() != null) {
@@ -248,8 +252,8 @@ public class SetUpGameBluetooth extends SetUpGame
                 break;
             }
             case BluetoothMessages.PLAYER_IMAGE_MESSAGE_ID: {
-                slapshotapp.game.support.PlayerImageMessage msg =
-                    new slapshotapp.game.support.PlayerImageMessage(dataIn);
+                PlayerImageMessage msg =
+                    new PlayerImageMessage(dataIn);
 
                 if (msg.GetImageName() != null) {
 
@@ -269,10 +273,10 @@ public class SetUpGameBluetooth extends SetUpGame
                 break;
             }
             case BluetoothMessages.START_GAME_MESSAGE_ID: {
-                slapshotapp.game.support.StartMessage msg =
-                    new slapshotapp.game.support.StartMessage(dataIn);
+                StartMessage msg =
+                    new StartMessage(dataIn);
 
-                if (msg.isAbortSet() == slapshotapp.game.support.StartMessage.ABORT_SET) {
+                if (msg.isAbortSet() == StartMessage.ABORT_SET) {
                     _receivedOpponentStartMessage = false;
                 } else {
                     _receivedOpponentStartMessage = true;
@@ -296,8 +300,8 @@ public class SetUpGameBluetooth extends SetUpGame
 
         switch (msgID) {
             case BluetoothMessages.BOARD_SIZE_MESSAGE_ID: {
-                slapshotapp.game.support.BoardSizeMessage msg =
-                    new slapshotapp.game.support.BoardSizeMessage();
+                BoardSizeMessage msg =
+                    new BoardSizeMessage();
                 msg.SetBoardSize(_GameBoardDimensions);
                 dataToSend = msg.convertObjectToBytes().array();
                 break;
@@ -305,22 +309,22 @@ public class SetUpGameBluetooth extends SetUpGame
             case BluetoothMessages.PLAYER_NAME_MESSAGE_ID: {
                 //update player name before sending it
                 _PlayerOne.SetName(_PlayerOneName.getText().toString());
-                slapshotapp.game.support.PlayerNameMessage msg =
-                    new slapshotapp.game.support.PlayerNameMessage();
+                PlayerNameMessage msg =
+                    new PlayerNameMessage();
                 msg.SetPlayerName(_PlayerOne.GetName());
                 dataToSend = msg.convertObjectToBytes().array();
                 break;
             }
             case BluetoothMessages.PLAYER_IMAGE_MESSAGE_ID: {
-                slapshotapp.game.support.PlayerImageMessage msg =
-                    new slapshotapp.game.support.PlayerImageMessage();
+                PlayerImageMessage msg =
+                    new PlayerImageMessage();
                 msg.SetImageName(_PlayerOne.GetSymbolValue());
                 dataToSend = msg.convertObjectToBytes().array();
                 break;
             }
             case BluetoothMessages.START_GAME_MESSAGE_ID: {
-                slapshotapp.game.support.StartMessage msg =
-                    new slapshotapp.game.support.StartMessage();
+                StartMessage msg =
+                    new StartMessage();
                 if (_AbortStart) {
                     msg.Abort();
                     _AbortStart = false;//clear the flag for next time

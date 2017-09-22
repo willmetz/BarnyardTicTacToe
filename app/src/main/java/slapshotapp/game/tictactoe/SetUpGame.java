@@ -133,6 +133,14 @@ public abstract class SetUpGame extends AppCompatActivity implements OnItemSelec
     @OnClick(R.id.startGameButton)
     public void startGameButtonClicked() {
 
+        if(_PlayerOne != null){
+            _PlayerOne.ClearWinCount();
+        }
+
+        if(_PlayerTwo != null){
+            _PlayerTwo.ClearWinCount();
+        }
+
         //create a bundle for the data to pass the game
         Bundle b = new Bundle();
 

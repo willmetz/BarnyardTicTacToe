@@ -1,7 +1,8 @@
-package slapshotapp.game.support;
+package slapshotapp.game.support.bluetooth_protocol;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import slapshotapp.game.support.bluetooth_protocol.BluetoothMessages;
 
 public class QuitMessage extends BluetoothMessages {
 
@@ -20,7 +21,7 @@ public class QuitMessage extends BluetoothMessages {
 
     /*
      * (non-Javadoc)
-     * @see slapshotapp.game.support.BluetoothMessages#populateObjectFromBytes(java.nio.ByteBuffer)
+     * @see slapshotapp.game.support.bluetooth_protocol.BluetoothMessages#populateObjectFromBytes(java.nio.ByteBuffer)
      * Populates the contents of the version message from a byte buffer.
      */
     public void populateObjectFromBytes(ByteBuffer msgBuffer) {
@@ -29,7 +30,7 @@ public class QuitMessage extends BluetoothMessages {
 
     /*
      * (non-Javadoc)
-     * @see slapshotapp.game.support.BluetoothMessages#convertObjectToBytes()
+     * @see slapshotapp.game.support.bluetooth_protocol.BluetoothMessages#convertObjectToBytes()
      *
      * Converts the objects contents to a byte buffer
      *

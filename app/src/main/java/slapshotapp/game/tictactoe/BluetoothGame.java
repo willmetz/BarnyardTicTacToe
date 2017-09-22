@@ -14,9 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
-import slapshotapp.game.support.BluetoothMessages;
+import slapshotapp.game.support.bluetooth_protocol.BluetoothMessages;
 import slapshotapp.game.support.Cell;
 import slapshotapp.game.support.MyAlertDialogFragment;
+import slapshotapp.game.support.bluetooth_protocol.InvalidMoveMessage;
+import slapshotapp.game.support.bluetooth_protocol.MoveMessage;
+import slapshotapp.game.support.bluetooth_protocol.NewGameMessage;
+import slapshotapp.game.support.bluetooth_protocol.QuitMessage;
 import slapshotapp.game.tictactoe.BluetoothService.LocalBinder;
 
 public class BluetoothGame extends PlayGame implements ServiceConnection {
@@ -181,26 +185,26 @@ public class BluetoothGame extends PlayGame implements ServiceConnection {
 
         switch (msgID) {
             case BluetoothMessages.MAKE_MOVE_MESSAGE_ID:
-                slapshotapp.game.support.MoveMessage moveMsg =
-                    new slapshotapp.game.support.MoveMessage();
+                MoveMessage moveMsg =
+                    new MoveMessage();
                 moveMsg.SetMove(_lastMoveMade.GetCellRow(), _lastMoveMade.GetCellColumn());
                 dataToSend = moveMsg.convertObjectToBytes().array();
                 break;
             case BluetoothMessages.QUIT_MESSAGE_ID:
-                slapshotapp.game.support.QuitMessage quitMsg =
-                    new slapshotapp.game.support.QuitMessage();
+                QuitMessage quitMsg =
+                    new QuitMessage();
                 dataToSend = quitMsg.convertObjectToBytes().array();
                 break;
             case BluetoothMessages.NEW_GAME_MESSAGE_ID:
-                slapshotapp.game.support.NewGameMessage newGameMsg =
-                    new slapshotapp.game.support.NewGameMessage();
+                NewGameMessage newGameMsg =
+                    new NewGameMessage();
                 newGameMsg.SetResponseField(
-                    slapshotapp.game.support.NewGameMessage.NO_RESPONSE_REQUIRED);
+                    NewGameMessage.NO_RESPONSE_REQUIRED);
                 dataToSend = newGameMsg.convertObjectToBytes().array();
                 break;
             case BluetoothMessages.INVALID_MOVE_MESSAGE_ID:
-                slapshotapp.game.support.InvalidMoveMessage invalidMoveMsg =
-                    new slapshotapp.game.support.InvalidMoveMessage();
+                InvalidMoveMessage invalidMoveMsg =
+                    new InvalidMoveMessage();
                 dataToSend = invalidMoveMsg.convertObjectToBytes().array();
             default:
                 sendMsg = false;
@@ -219,8 +223,8 @@ public class BluetoothGame extends PlayGame implements ServiceConnection {
 
         switch (baseMsg.getMessageID()) {
             case BluetoothMessages.MAKE_MOVE_MESSAGE_ID: {
-                slapshotapp.game.support.MoveMessage inMsg =
-                    new slapshotapp.game.support.MoveMessage(buffer);
+                MoveMessage inMsg =
+                    new MoveMessage(buffer);
 
                 //handle the other players move
                 handleOtherPlayerMove(inMsg.GetMoveColumn(), inMsg.GetMoveRow());

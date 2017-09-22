@@ -13,23 +13,27 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
 
+ext{
+    appcompatversion = '26.1.0'
+    butterknifeversion = '8.7.0'
+}
+
 
 dependencies {
-    implementation 'com.jakewharton:butterknife:8.7.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
-    implementation 'com.android.support:appcompat-v7:26.0.2'
-
+    implementation "com.jakewharton:butterknife:$butterknifeversion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$butterknifeversion"
+    implementation "com.android.support:appcompat-v7:$appcompatversion"
+    implementation "com.android.support:design:$appcompatversion"
     implementation 'com.android.support.constraint:constraint-layout:1.1.0-beta1'
 
-    implementation 'com.android.support:design:26.1.0'
 }

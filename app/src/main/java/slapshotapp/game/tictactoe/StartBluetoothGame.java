@@ -29,11 +29,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
-import slapshotapp.game.support.BluetoothMessages;
+import slapshotapp.game.support.bluetooth_protocol.BluetoothMessages;
 import slapshotapp.game.support.FragmentAlertDialog;
 import slapshotapp.game.support.MyAlertDialogFragment;
 import slapshotapp.game.support.TicTacToeDBHelper;
-import slapshotapp.game.support.VersionMessage;
+import slapshotapp.game.support.bluetooth_protocol.VersionMessage;
 import slapshotapp.game.tictactoe.BluetoothService.LocalBinder;
 
 public class StartBluetoothGame extends FragmentActivity
