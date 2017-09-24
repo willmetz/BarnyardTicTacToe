@@ -2,6 +2,7 @@ package slapshotapp.game.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.inputmethod.EditorInfo;
 import slapshotapp.game.support.Player;
 
 public class SetUpGameTwoPlayer extends SetUpGame {
@@ -34,6 +35,10 @@ public class SetUpGameTwoPlayer extends SetUpGame {
             _PlayerTwo.SetSymbol(_SymbolNameList[1],
                 _SymbolNameToDrawableHash.get(_SymbolNameList[1]));
         }
+
+        _PlayerOneName.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+        _PlayerOneName.setNextFocusDownId(_PlayerOneName.getId());
+        _PlayerTwoName.setImeOptions(EditorInfo.IME_ACTION_DONE);
     }
 
     @Override public void startGame(Bundle bundle) {

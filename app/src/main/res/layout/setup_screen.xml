@@ -80,6 +80,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/player_one_name_hint"
+                    android:inputType="textPersonName"
                     android:maxLines="1"
                     android:textColorHint="@android:color/black"
                     android:textSize="@dimen/settingsPageNameTextSize"/>
@@ -142,6 +143,7 @@
                     android:id="@+id/player_two_name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
                     android:hint="@string/player_two_name_hint"
                     android:maxLines="1"
                     android:textColorHint="@android:color/black"

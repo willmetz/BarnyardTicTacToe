@@ -9,6 +9,7 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -99,10 +100,17 @@ public abstract class SetUpGame extends AppCompatActivity implements OnItemSelec
         this.setSpinnerDefaultLists();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+    }
+
     /*
-     * (non-Javadoc)
-     * @see android.app.Activity#onDestroy()
-     */
+         * (non-Javadoc)
+         * @see android.app.Activity#onDestroy()
+         */
     public void onDestroy() {
         super.onDestroy();
         if (_PlayerOne != null) {

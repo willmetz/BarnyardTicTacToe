@@ -15,6 +15,7 @@ import android.os.Message;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Toast;
 import java.lang.ref.WeakReference;
@@ -90,6 +91,8 @@ public class SetUpGameBluetooth extends SetUpGame
         _receivedOpponentStartMessage = _AbortStart = false;
 
         _MyDBHelper = new TicTacToeDBHelper(this);
+
+        _PlayerOneName.setImeOptions(EditorInfo.IME_ACTION_DONE);
     }
 
     public void onStart() {
