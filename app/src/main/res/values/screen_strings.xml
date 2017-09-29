@@ -3,7 +3,11 @@
 
     <string name="GameTitleString">Barnyard\nTic Tac Toe</string>
 	<string name="SelectIcon">Select an Icon</string>
-	<string-array name = "GameModeSize">
+    <string name="bluetooth_scanning_title">Bluetooth device scanning</string>
+	<string name="location_permission_rationale">In order to scan for nearby Bluetooth devices the location permission is required.</string>
+    <string name="deny_location_permission">Deny and Exit</string>
+
+    <string-array name = "GameModeSize">
 		<item>3 X 3</item>
 		<item>5 X 5</item>
 	</string-array>

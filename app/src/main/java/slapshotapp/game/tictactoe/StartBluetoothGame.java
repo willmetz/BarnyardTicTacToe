@@ -1,5 +1,6 @@
 package slapshotapp.game.tictactoe;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -11,12 +12,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
@@ -28,17 +33,20 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import java.lang.ref.WeakReference;
-import slapshotapp.game.support.bluetooth_protocol.BluetoothMessages;
 import slapshotapp.game.support.FragmentAlertDialog;
 import slapshotapp.game.support.MyAlertDialogFragment;
 import slapshotapp.game.support.TicTacToeDBHelper;
+import slapshotapp.game.support.bluetooth_protocol.BluetoothMessages;
 import slapshotapp.game.support.bluetooth_protocol.VersionMessage;
 import slapshotapp.game.tictactoe.BluetoothService.LocalBinder;
 
 public class StartBluetoothGame extends FragmentActivity
     implements FragmentAlertDialog, ServiceConnection, OnItemClickListener {
     public static final int BLUETOOTH_GAME_EXIT = 2;
+    private final int COURSE_LOCATION_REQUEST = 5464;
 
     private final int DISCOVERY_DURATION = 180; //The discovery duration in seconds
     private final String TAG = "StartBluetoothGame";
@@ -56,12 +64,15 @@ public class StartBluetoothGame extends FragmentActivity
     private boolean _gameConnectingMessageShowing;
 
     /** Called when the activity is first created. */
-    @Override public void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //show a progress bar on activity loading
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.bluetooth_device_list);
+
+        ButterKnife.bind(this);
 
         //get the database of previous connections
         _MyDBHelper = new TicTacToeDBHelper(this);
@@ -81,6 +92,8 @@ public class StartBluetoothGame extends FragmentActivity
         _newDevicesMapping = new SparseArray<String>();
         _previouslyPlayedDevicesMapping = new SparseArray<String>();
         _newDeviceCount = _previouslyPlayedDeviceCount = 0;
+
+
     }
 
     public void onStart() {
@@ -101,22 +114,12 @@ public class StartBluetoothGame extends FragmentActivity
         //start the bluetooth  service
         Intent myIntent = new Intent(this, BluetoothService.class);
         bindService(myIntent, this, Context.BIND_AUTO_CREATE);
+
+        promptForScanning();
     }
 
-    public void onResume() {
-        super.onResume();
-    }
-
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override public void onPause() {
-        super.onPause();
-        //close any resources here if need be
-    }
-
-    @Override public void onStop() {
+    @Override
+    public void onStop() {
         super.onStop();
 
         // Unbind from the service
@@ -134,17 +137,43 @@ public class StartBluetoothGame extends FragmentActivity
         this.unregisterReceiver(myBroadcastReceiver);
     }
 
-    public void deviceClickListener(View target) {
-        switch (target.getId()) {
-            case R.id.bluetoothDiscoveryButton:
-
-                enableBluetoothDiscovery();
-
-                break;
-        }
+    @OnClick(R.id.scanForBluetoothDevices)
+    public void scanForDevices(View target) {
+        scanForNearbyBluetoothDevices();
     }
 
-    private void enableBluetoothDiscovery() {
+    private void scanForNearbyBluetoothDevices() {
+
+        //in order to scan for bluetooth devices we need the location permission
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+            != PackageManager.PERMISSION_GRANTED) {
+
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.ACCESS_COARSE_LOCATION)){
+
+                new AlertDialog.Builder(this)
+                    .setTitle(R.string.bluetooth_scanning_title)
+                    .setMessage(R.string.location_permission_rationale)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            requestLocationPermission();
+                        }
+                    })
+                    .setNegativeButton(R.string.deny_location_permission, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    })
+                    .show();
+            }else{
+                requestLocationPermission();
+            }
+
+            return;
+        }
+
         // If we're already discovering, stop it
         if (_myBluetoothAdapter.isDiscovering()) {
             _myBluetoothAdapter.cancelDiscovery();
@@ -166,6 +195,44 @@ public class StartBluetoothGame extends FragmentActivity
         }
     }
 
+    private void promptForScanning(){
+        new AlertDialog.Builder(this)
+            .setMessage("Scan for nearby bluetooth devices?")
+            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    scanForNearbyBluetoothDevices();
+                }
+            })
+            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    //no-op
+                }
+            })
+            .show();
+
+    }
+
+    private void requestLocationPermission(){
+        ActivityCompat.requestPermissions(this,
+            new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
+            COURSE_LOCATION_REQUEST);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if(requestCode == COURSE_LOCATION_REQUEST){
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                scanForNearbyBluetoothDevices();
+            }
+        }
+
+    }
+
+
     /*
      * (non-Javadoc)
      * @see android.content.ServiceConnection#onServiceConnected(android.content.ComponentName, android.os.IBinder)
@@ -182,9 +249,6 @@ public class StartBluetoothGame extends FragmentActivity
 
         //start the bluetooth service
         _myBluetoothService.start();
-
-        //Search for other bluetooth devices and make this device discoverable
-        enableBluetoothDiscovery();
     }
 
     /*
@@ -292,6 +356,8 @@ public class StartBluetoothGame extends FragmentActivity
 
             //if a device is found, add it to the appropriate list
             if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+
+                Log.d("Bluetooth", "Found a device!!");
                 _devicesFoundInDiscovery = true;
 
                 // Get the BluetoothDevice object from the Intent
@@ -355,8 +421,11 @@ public class StartBluetoothGame extends FragmentActivity
                     }
                 }
             } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+
+                Log.d("Bluetooth", "Discovery complete!!");
+
                 setProgressBarIndeterminateVisibility(false);
-                Button myButton = (Button) findViewById(R.id.bluetoothDiscoveryButton);
+                Button myButton = (Button) findViewById(R.id.scanForBluetoothDevices);
                 myButton.setVisibility(View.VISIBLE);
 
                 if (!_AttemptingConnection) {
@@ -371,10 +440,12 @@ public class StartBluetoothGame extends FragmentActivity
                 _AttemptingConnection = false;
             } else if (BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action)) {
 
+                Log.d("Bluetooth", "Discovery started!!");
+
                 _devicesFoundInDiscovery = false;
 
                 setProgressBarIndeterminateVisibility(true);
-                Button myButton = (Button) findViewById(R.id.bluetoothDiscoveryButton);
+                Button myButton = (Button) findViewById(R.id.scanForBluetoothDevices);
                 myButton.setVisibility(View.INVISIBLE);
             }
         }
@@ -388,7 +459,8 @@ public class StartBluetoothGame extends FragmentActivity
             _myGame = new WeakReference<StartBluetoothGame>(game);
         }
 
-        @Override public void handleMessage(Message msg) {
+        @Override
+        public void handleMessage(Message msg) {
             super.handleMessage(msg);
             StartBluetoothGame game = _myGame.get();
             switch (msg.what) {

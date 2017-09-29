@@ -14,19 +14,27 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+import io.fabric.sdk.android.Fabric;
 
 public class StartGame extends AppCompatActivity {
     public static final short ONE_PLAYER_GAME = 1, TWO_PLAYER_GAME = 2, BLUETOOTH_GAME = 3;
 
     private final int REQUEST_ENABLE_BT = 1237;
 
-    @BindView(R.id.version_info) TextView versionString;
+    @BindView(R.id.version_info)
+    TextView versionString;
 
-    @BindView(R.id.bluetoothButton) Button blueToothGameButton;
+    @BindView(R.id.bluetoothButton)
+    Button blueToothGameButton;
 
     /** Called when the activity is first created. */
-    @Override public void onCreate(Bundle savedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.start_screen);
 
         ButterKnife.bind(this);
@@ -46,15 +54,34 @@ public class StartGame extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.onePlayerButton) protected void onePlayerGameSelected() {
+    @OnClick(R.id.onePlayerButton)
+    protected void onePlayerGameSelected() {
+
+        CustomEvent event = new CustomEvent(getString(R.string.start_game_event));
+        event.putCustomAttribute(getString(R.string.game_type_key),
+            getString(R.string.one_player_game_value));
+        Answers.getInstance().logCustom(event);
+
         startActivity(new Intent(this, SetUpGameOnePlayer.class));
     }
 
-    @OnClick(R.id.twoPlayerButton) protected void twoPlayerGameSelected() {
+    @OnClick(R.id.twoPlayerButton)
+    protected void twoPlayerGameSelected() {
+        CustomEvent event = new CustomEvent(getString(R.string.start_game_event));
+        event.putCustomAttribute(getString(R.string.game_type_key),
+            getString(R.string.two_player_game_value));
+        Answers.getInstance().logCustom(event);
+
         startActivity(new Intent(this, SetUpGameTwoPlayer.class));
     }
 
-    @OnClick(R.id.bluetoothButton) protected void blueToothGameSelected() {
+    @OnClick(R.id.bluetoothButton)
+    protected void blueToothGameSelected() {
+        CustomEvent event = new CustomEvent(getString(R.string.start_game_event));
+        event.putCustomAttribute(getString(R.string.game_type_key),
+            getString(R.string.blue_tooth_game_value));
+        Answers.getInstance().logCustom(event);
+
         //Make sure that bluetooth is enabled
         BluetoothAdapter myAdapter = BluetoothAdapter.getDefaultAdapter();
         if (!myAdapter.isEnabled()) {
@@ -83,7 +110,8 @@ public class StartGame extends AppCompatActivity {
         try {
             PackageInfo pi = getPackageManager().getPackageInfo(getPackageName(), 0);
             version = "Version: " + pi.versionName;
-        } catch (PackageManager.NameNotFoundException e) {
+        }
+        catch (PackageManager.NameNotFoundException e) {
             version = "Version: Unable to retrieve";
         }
 
@@ -97,7 +125,8 @@ public class StartGame extends AppCompatActivity {
         //set this class to be the listener
         builder.setPositiveButton("Select another game mode",
             new DialogInterface.OnClickListener() {
-                @Override public void onClick(DialogInterface dialog, int which) {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
                     //TODO think about disabling the bluetooth option here
                 }
             });

@@ -3,6 +3,7 @@ package slapshotapp.game.tictactoe;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
 import android.content.BroadcastReceiver;
@@ -81,8 +82,14 @@ public class BluetoothService extends Service {
      * @see android.app.Service#onCreate()
      */
     public void onCreate() {
+
+        Log.d("Bluetooth", "creating service");
+
         _myState = CONNECTION_STATE_NONE;
-        _myBTAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        BluetoothManager bluetoothManager = (BluetoothManager)getSystemService(BLUETOOTH_SERVICE);
+
+        _myBTAdapter = bluetoothManager.getAdapter();
         _IsServer = false;
         _deviceAddress = _deviceName = "None";
 
@@ -224,6 +231,9 @@ public class BluetoothService extends Service {
      * A thread safe method to start listening for a connection.
      */
     public synchronized void start() {
+
+        Log.d("Bluetooth", "starting service");
+
         //make sure that the threads attempting to make a connection and
         //that would maintain a connection are canceled
         if (_myConnectThread != null) {

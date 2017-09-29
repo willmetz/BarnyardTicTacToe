@@ -45,12 +45,11 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
-        android:id="@+id/bluetoothDiscoveryButton"
+        android:id="@+id/scanForBluetoothDevices"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="deviceClickListener"
         android:text="@string/find_more_bluetooth" />
 
 </RelativeLayout>
