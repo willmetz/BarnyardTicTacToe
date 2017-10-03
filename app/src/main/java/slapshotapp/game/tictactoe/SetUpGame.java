@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.constraint.Group;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -59,6 +60,9 @@ public abstract class SetUpGame extends AppCompatActivity implements OnItemSelec
 
     @BindView(R.id.player_one_name_input)
     protected TextInputEditText _PlayerOneName;
+
+    @BindView(R.id.player_one_name)
+    protected TextInputLayout _PlayerOneInputLayout;
 
     @BindView(R.id.player_two_name_input)
     protected TextInputEditText _PlayerTwoName;
