@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/barn_pic"
     >
 
@@ -10,68 +12,81 @@
         android:id="@+id/myTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/titleBlockTopMargin"
+        android:gravity="center"
+        android:lineSpacingExtra="8dp"
         android:paddingLeft="@dimen/titleBlockPadding"
         android:paddingRight="@dimen/titleBlockPadding"
-        android:layout_marginTop="@dimen/titleBlockTopMargin"
-        android:layout_alignParentTop="true"
-        android:lineSpacingExtra="30dp"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textColor="@color/darkRed"
+        android:text="@string/game_title"
+        android:textColor="@android:color/white"
         android:textSize="@dimen/titleBarTextSize"
         android:textStyle="bold"
-        android:background="@color/gray_05"
-        android:text="@string/game_title"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
-    
+
     <TextView
-		android:id="@+id/VersionInfo"
-    	android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_centerHorizontal="true"	
-		android:layout_below="@id/myTitle"
-        android:layout_marginTop="5dp"
-		android:background="@color/red"
-		android:textColor="@android:color/black"
-		android:textSize="15sp"
-		tools:text="Version 1.2"
-    />
-
-    <LinearLayout
+        android:id="@+id/version_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginBottom="5dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-
-        <Button
-            android:id="@+id/onePlayerButton"
-            style="@style/Game.Button"
-            android:layout_width="@dimen/actionButtonWidth"
-            android:layout_marginBottom="10dp"
-            android:text="@string/single_player_game_button"
-            android:textSize="@dimen/titlePageButtonTextSize" />
-
-        <Button
-            android:id="@+id/twoPlayerButton"
-            style="@style/Game.Button"
-            android:layout_width="@dimen/actionButtonWidth"
-            android:layout_marginBottom="10dp"
-            android:text="@string/two_player_game_button"
-            android:textSize="@dimen/titlePageButtonTextSize" />
-
-        <Button
-            android:id="@+id/bluetoothButton"
-            style="@style/Game.Button"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp"
-            android:text="@string/bluetooth_game_button"
-            android:textSize="@dimen/titlePageButtonTextSize" />
-     </LinearLayout>
+        android:layout_below="@id/myTitle"
+        android:layout_marginTop="5dp"
+        android:background="@color/red"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/titlePageVersionTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myTitle"
+        tools:text="Version 1.2"
+        />
 
 
+    <Button
+        android:id="@+id/onePlayerButton"
+        android:layout_width="@dimen/actionButtonWidth"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/titlePageTopButtonMargin"
+        android:elevation="2dp"
+        android:text="@string/single_player_game_button"
+        android:textSize="@dimen/titlePageButtonTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/twoPlayerButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/version_info"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        style="@style/Game.Button"
+        />
+
+    <Button
+        android:id="@+id/twoPlayerButton"
+        android:layout_width="@dimen/actionButtonWidth"
+        android:layout_height="wrap_content"
+        android:text="@string/two_player_game_button"
+        android:textSize="@dimen/titlePageButtonTextSize"
+        app:layout_constraintBottom_toTopOf="@+id/bluetoothButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/onePlayerButton"
+        style="@style/Game.Button"
+        />
+
+    <Button
+        android:id="@+id/bluetoothButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="16dp"
+        android:padding="8dp"
+        android:text="@string/bluetooth_game_button"
+        android:textSize="@dimen/titlePageButtonTextSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/twoPlayerButton"
+        style="@style/Game.Button"
+        />
 
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

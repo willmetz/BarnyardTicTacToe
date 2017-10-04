@@ -1,40 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
+<resources>
 
-	<dimen name = "actionButtonTextSize">25sp</dimen>
-	<dimen name = "gameCellDimensions">80dp</dimen>
-	<dimen name = "gameCellDimensions_5_5">50dp</dimen>
-    <dimen name = "titleBlockPadding">20dp</dimen>
+    <dimen name="titleBlockTopMargin">90dp</dimen>
+    <dimen name="titleBarTextSize">50sp</dimen>
+    <dimen name="titlePageButtonTextSize">25sp</dimen>
+    <dimen name="titlePageButtonWidth">180dp</dimen>
+    <dimen name="titlePageTopButtonMargin">80dp</dimen>
+    <dimen name="titleBlockPadding">20dp</dimen>
+    <dimen name="titlePageVersionTextSize">20sp</dimen>
 
-	
-	<!-- Cell dimensions for normal screens -->
-	<dimen name = "gameCellDimensionsSmall">70dp</dimen>
-	<dimen name = "gameCellDimensionsSmall_5_5">45dp</dimen>
-	<dimen name = "scoreTextSizeSmall">12sp</dimen>
-	<dimen name = "playerTurnTextSizeSmall">18sp</dimen>
-	<dimen name = "cellSpacingSmall">2dip</dimen>
-	
-	<!-- Cell dimensions for normal screens -->
-	<dimen name = "gameCellDimensionsNormal">80dp</dimen>
-	<dimen name = "gameCellDimensionsNormal_5_5">50dp</dimen>
-	<dimen name = "scoreTextSizeNormal">14sp</dimen>
-	<dimen name = "playerTurnTextSizeNormal">25sp</dimen>
-	<dimen name = "cellSpacingNormal">3dip</dimen>
-	
-	<!-- Cell dimensions for large screens -->
-	<dimen name = "gameCellDimensionsLarge">120dp</dimen>
-	<dimen name = "gameCellDimensionsLarge_5_5">80dp</dimen>
-	<dimen name = "scoreTextSizeLarge">20sp</dimen>
-	<dimen name = "playerTurnTextSizeLarge">30sp</dimen>
-	<dimen name = "cellSpacingLarge">4dip</dimen>
-	
-	
-	<!-- Cell dimensions for x-large screens -->
-	<dimen name = "gameCellDimensionsXlarge">200dp</dimen>
-	<dimen name = "gameCellDimensionsXLarge_5_5">125dp</dimen>
-	<dimen name = "scoreTextSizeXLarge">30sp</dimen>
-	<dimen name = "playerTurnTextSizeXLarge">45sp</dimen>
-	<dimen name = "cellSpacingXLarge">6dip</dimen>
-	<dimen name="actionButtonTextSizeXLarge">40sp</dimen>
-	<dimen name="actionButtonWidthXLarge">240dp</dimen>
+
+    <dimen name="settingsPageNameWidth">300dp</dimen>
+    <dimen name="settingsPageTopMargin">80dp</dimen>
+    <dimen name="settingsPagePlayGameTopMargin">16dp</dimen>
+    <dimen name="settingsPageStartGamePadding">4dp</dimen>
+    <dimen name="settingsPageTextSize">20sp</dimen>
+    <dimen name="settingsPageInputMarginTop">4dp</dimen>
+    <dimen name="settingsPageNameTextSize">20sp</dimen>
+    <dimen name="setupPageSpinnerTopMargin">8dp</dimen>
+
+    <dimen name="gameCellDimensions">80dp</dimen>
+    <dimen name="gameCellDimensions_5_5">50dp</dimen>
+    <dimen name="scoreTextSize">20sp</dimen>
+    <dimen name="playerTurnTextSize">30sp</dimen>
+    <dimen name="cellSpacing">3dp</dimen>
+    <dimen name="five_five_top_margin">160dp</dimen>
+
+    <dimen name="actionButtonWidth">180dp</dimen>
+    <dimen name="actionButtonTextSize">25sp</dimen>
+
+    <string name="settings_page_barn_door_ratio">5:2</string>
 </resources>
