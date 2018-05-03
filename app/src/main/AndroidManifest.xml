@@ -76,10 +76,6 @@
         <service android:name=".BluetoothService">
 
         </service>
-
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="110a8a1ea275c407a94233b980b0d9e9db96567c"/>
     </application>
 
 
